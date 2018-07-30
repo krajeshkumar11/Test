@@ -1,3 +1,4 @@
+Owner: Rajesh
 Pseudo code
 
 1. Input n

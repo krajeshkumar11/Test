@@ -12,7 +12,7 @@ def main():
 	count = 0
 	for index in range(len(s)):
 		newst = s[index:len(s)]
-		if(newst.find(char) != -1)
+		if(newst.find(char) != -1):
 			count = count + 1
 
 	print("Number of times bob occurs is: " + str(count))

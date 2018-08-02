@@ -12,10 +12,12 @@ def main():
 	count = 0
 	for index in range(len(s)):
 		newst = s[index:len(s)]
-		if(newst.find(char) != -1):
-			count = count + 1
+		pos = newst.find(char) 
+		if(pos != -1):
+			if((pos+len(char) <= len(s)) and newst[pos:pos+3] == char)
+				count = count + 1
 
-	print("Number of times bob occurs is: " + str(count))
+	print(count)
 
 
 if __name__== "__main__":

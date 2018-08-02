@@ -14,7 +14,7 @@ def main():
 		newst = s[index:len(s)]
 		pos = newst.find(char) 
 		if(pos != -1):
-			if((pos+len(char) <= len(s)) and newst[pos:pos+3] == char)
+			if((pos+len(char) <= len(s)) and newst[pos:pos+3] == char):
 				count = count + 1
 
 	print(count)

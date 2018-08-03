@@ -10,7 +10,7 @@ For example, if s = 'abcbcd', then your program should print
 
 Longest substring in alphabetical order is: abc
 
-Note: This problem majbe challenging. We encourage you to work smart.
+Note: This problem maj be challenging. We encourage you to work smart.
 If you've spent more than a few hours on this problem, we suggest that you move on to a different part of the course.
 If you have time, come back to this problem after you've had a break and cleared your head.'''
 
@@ -24,11 +24,11 @@ def main():
     start = 0
     end = 0
     count = 0
-    i= 0
-    tempi= x
+    i = 0
+    tempi = x
     flag = 0
-    while i< (len(s)-1):
-        j= i+ 1
+    while i < (len(s)-1):
+        j = i + 1
         # print(str(i) + " " + str(j) + ' comparison between: ' + s[i] + " < " + s[j])
         if(s[i] > s[j]):
             flag = 1
@@ -37,25 +37,25 @@ def main():
             # print(True)
 
             # print(str(j) + " " + str((len(s)-1)))
-        if (j== (len(s) - 1)):
-            j+= 1
+        if (j == (len(s) - 1)):
+            j += 1
         # print(str(j))
-        # print(str(i) + " " + str((len(s)-2)) + " " + str(count) + " " + str(y-tempx))
-        if (i== (len(s)-2) and count < (y-tempx)):
+        # print(str(i) + " " + str((len(s)-2)) + " " + str(count) + " " + str(j-tempx))
+        if (i == (len(s)-2) and count < (j-tempx)):
             flag = 1
 
         if flag == 1:
-            # print("iis: " +  str(y-tempx))
-            if count < (y-tempx):
+            # print("i is: " +  str(j-tempx))
+            if count < (j-tempx):
                 start = tempx
-                end = y
+                end = j
                 count = end - start
 
-            tempi= i+ 1
+            tempi = i + 1
             flag = 0
             # print(str(tempx) + " " + str(flag))
 
-        i= i+ 1
+        i = i + 1
     print(s[start:end])
 
 

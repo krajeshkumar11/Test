@@ -15,7 +15,7 @@ If you've spent more than a few hours on this problem, we suggest that you move 
 If you have time, come back to this problem after you've had a break and cleared your head.'''
 
 def main():
-    S = input()
+    S = raw_input()
 	# the input string is in s
 	# remove pass and start your code here
 	# s1 = 'abcabcd'

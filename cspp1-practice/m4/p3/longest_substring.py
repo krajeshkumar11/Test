@@ -48,7 +48,7 @@ def main():
             # print("i is: " +  str(j-tempi))
             if COUNT < (J-TEMPI):
                 START = TEMPI
-                END = j
+                END = J
                 COUNT = END - START
 
             TEMPI = I + 1

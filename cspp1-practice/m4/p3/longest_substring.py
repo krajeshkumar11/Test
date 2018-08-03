@@ -46,7 +46,7 @@ def ma_In():
 
         if _FLAG == 1:
             # pr_Int("_I _Is: " +  str(_J-_TEMP_I))
-            _If _COUNT < (_J-_TEMP_I):
+            if _COUNT < (_J-_TEMP_I):
                 _START = _TEMP_I
                 _END = _J
                 _COUNT = _END - _START

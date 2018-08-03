@@ -59,5 +59,5 @@ def ma_In():
     pr_Int(_S[_START:_END])
 
 
-_If __name__== "__ma_In__":
+if __name__== "__ma_In__":
 	ma_In()

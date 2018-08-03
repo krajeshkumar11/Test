@@ -25,7 +25,7 @@ def main():
     end = 0
     count = 0
     i = 0
-    tempi = x
+    tempi = i
     flag = 0
     while i < (len(s)-1):
         j = i + 1

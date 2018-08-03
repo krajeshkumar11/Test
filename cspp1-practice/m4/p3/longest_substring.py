@@ -14,7 +14,7 @@ Note: Th_Is problem ma_J be challeng_Ing. We encourage you to work smart.
 _If you've spent more than a few hours on th_Is problem, we suggest that you move on to a d_Ifferent part of the course.
 _If you have t_Ime, come back to th_Is problem after you've had a break and cleared your head.'''
 
-def ma_In():
+def main():
     _S = raw__Input()
 	# the _Input str_Ing _Is _In s
 	# remove pass and _START your code here
@@ -60,4 +60,4 @@ def ma_In():
 
 
 if __name__== "__ma_In__":
-	ma_In()
+	main()

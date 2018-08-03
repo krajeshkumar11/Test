@@ -47,7 +47,7 @@ def main():
         if flag == 1:
             # print("i is: " +  str(j-tempi))
             if count < (j-tempi):
-                start = tempx
+                start = tempi
                 end = j
                 count = end - start
 

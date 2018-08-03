@@ -10,13 +10,15 @@ def main():
 	# remove pass and start your code here
 	char = "bob"
 	count = 0
-	for index in range(len(s)):
-		newst = s[index:len(s)]
-		pos = newst.find(char) 
-		if(pos != -1):
-			if((pos+len(char) <= len(s)) and newst[pos:pos+3] == char):
+	print(s)
+	index = 0
+	while(index < len(s)):
+		print(s[0] + "RAJESH")
+		if(s[index] == char[0]):
+			if((pos+len(char) <= len(s)) and newst[pos:pos+len(char)] == char):
 				count = count + 1
 				index = pos
+		index += 1
 
 	print(count)
 

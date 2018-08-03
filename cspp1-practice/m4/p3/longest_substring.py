@@ -55,7 +55,7 @@ def main():
             FLAG = 0
             # print(str(tempi) + " " + str(flag))
 
-        I = i + 1
+        I = I + 1
     print(S[START:END])
 
 

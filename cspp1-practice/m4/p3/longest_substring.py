@@ -27,24 +27,24 @@ def ma_In():
     _I = 0
     _TEMP_I = _I
     _FLAG = 0
-    wh_Ile _I < (len(_S)-1):
+    while _I < (len(_S)-1):
         _J = _I + 1
         # pr_Int(str(_I) + " " + str(_J) + ' compar_Ison between: ' + s[_I] + " < " + s[_J])
-        _If(_S[_I] > _S[_J]):
+        if(_S[_I] > _S[_J]):
             _FLAG = 1
             # pr_Int(False)
         # else:
             # pr_Int(True)
 
             # pr_Int(str(_J) + " " + str((len(s)-1)))
-        _If (_J == (len(_S) - 1)):
+        if (_J == (len(_S) - 1)):
             _J += 1
         # pr_Int(str(_J))
         # pr_Int(str(_I) + " " + str((len(s)-2)) + " " + str(_COUNT) + " " + str(_J-_TEMP_I))
-        _If (_I == (len(_S)-2) and _COUNT < (_J-_TEMP_I)):
+        if (_I == (len(_S)-2) and _COUNT < (_J-_TEMP_I)):
             _FLAG = 1
 
-        _If _FLAG == 1:
+        if _FLAG == 1:
             # pr_Int("_I _Is: " +  str(_J-_TEMP_I))
             _If _COUNT < (_J-_TEMP_I):
                 _START = _TEMP_I

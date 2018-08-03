@@ -15,48 +15,48 @@ If you've spent more than a few hours on this problem, we suggest that you move 
 If you have time, come back to this problem after you've had a break and cleared your head.'''
 
 def main():
-    s = raw_input()
+    S = input()
 	# the input string is in s
 	# remove pass and start your code here
 	# s1 = 'abcabcd'
     # s1 = s
 
-    start = 0
-    end = 0
-    count = 0
-    i = 0
-    tempi = i
-    flag = 0
-    while i < (len(s)-1):
-        j = i + 1
+    START = 0
+    END = 0
+    COUNT = 0
+    I = 0
+    TEMPI = I
+    FLAG = 0
+    while I < (len(S)-1):
+        J = I + 1
         # print(str(i) + " " + str(j) + ' comparison between: ' + s[i] + " < " + s[j])
-        if(s[i] > s[j]):
-            flag = 1
+        if(S[I] > S[J]):
+            FLAG = 1
             # print(False)
         # else:
             # print(True)
 
             # print(str(j) + " " + str((len(s)-1)))
-        if (j == (len(s) - 1)):
-            j += 1
+        if (J == (len(S) - 1)):
+            J += 1
         # print(str(j))
         # print(str(i) + " " + str((len(s)-2)) + " " + str(count) + " " + str(j-tempi))
-        if (i == (len(s)-2) and count < (j-tempi)):
-            flag = 1
+        if (I == (len(S)-2) and COUNT < (J-TEMPI)):
+            FLAG = 1
 
-        if flag == 1:
+        if FLAG == 1:
             # print("i is: " +  str(j-tempi))
-            if count < (j-tempi):
-                start = tempi
-                end = j
-                count = end - start
+            if COUNT < (J-TEMPI):
+                START = TEMPI
+                END = j
+                COUNT = END - START
 
-            tempi = i + 1
-            flag = 0
+            TEMPI = I + 1
+            FLAG = 0
             # print(str(tempi) + " " + str(flag))
 
-        i = i + 1
-    print(s[start:end])
+        I = i + 1
+    print(S[START:END])
 
 
 if __name__== "__main__":

@@ -1,63 +1,63 @@
-'''Assume s _Is a str_Ing of lower case characters.
+'''Assume s is a string of lower case characters.
 
-Wr_Ite a program that pr_Ints the longest substr_Ing of s _In wh_Ich the letters occur _In alphabet_Ical order.
-For example, _If s = 'azcbobobegghakl', then your program should pr_Int
+Write a program that prints the longest substring of s in which the letters occur in alphabetical order.
+For example, if s = 'azcbobobegghakl', then your program should print
 
-Longest substr_Ing _In alphabet_Ical order _Is: beggh
+Longest substring in alphabetical order is: beggh
 
-_In the case of t_Ies, pr_Int the f_Irst substr_Ing.
-For example, _If s = 'abcbcd', then your program should pr_Int
+In the case of ties, print the first substring.
+For example, if s = 'abcbcd', then your program should print
 
-Longest substr_Ing _In alphabet_Ical order _Is: abc
+Longest substring in alphabetical order is: abc
 
-Note: Th_Is problem ma_J be challeng_Ing. We encourage you to work smart.
-_If you've spent more than a few hours on th_Is problem, we suggest that you move on to a d_Ifferent part of the course.
-_If you have t_Ime, come back to th_Is problem after you've had a break and cleared your head.'''
+Note: This problem maj be challenging. We encourage you to work smart.
+If you've spent more than a few hours on this problem, we suggest that you move on to a different part of the course.
+If you have time, come back to this problem after you've had a break and cleared your head.'''
 
 def main():
-    _S = raw__Input()
-	# the _Input str_Ing _Is _In s
-	# remove pass and _START your code here
+    S = raw_input()
+	# the input string is in s
+	# remove pass and start your code here
 	# s1 = 'abcabcd'
     # s1 = s
 
-    _START = 0
-    _END = 0
-    _COUNT = 0
-    _I = 0
-    _TEMP_I = _I
-    _FLAG = 0
-    while _I < (len(_S)-1):
-        _J = _I + 1
-        # pr_Int(str(_I) + " " + str(_J) + ' compar_Ison between: ' + s[_I] + " < " + s[_J])
-        if(_S[_I] > _S[_J]):
-            _FLAG = 1
-            # pr_Int(False)
+    START = 0
+    END = 0
+    COUNT = 0
+    I = 0
+    TEMPI = I
+    FLAG = 0
+    while I < (len(S)-1):
+        J = I + 1
+        # print(str(i) + " " + str(j) + ' comparison between: ' + s[i] + " < " + s[j])
+        if(S[I] > S[J]):
+            FLAG = 1
+            # print(False)
         # else:
-            # pr_Int(True)
+            # print(True)
 
-            # pr_Int(str(_J) + " " + str((len(s)-1)))
-        if (_J == (len(_S) - 1)):
-            _J += 1
-        # pr_Int(str(_J))
-        # pr_Int(str(_I) + " " + str((len(s)-2)) + " " + str(_COUNT) + " " + str(_J-_TEMP_I))
-        if (_I == (len(_S)-2) and _COUNT < (_J-_TEMP_I)):
-            _FLAG = 1
+            # print(str(j) + " " + str((len(s)-1)))
+        if (J == (len(S) - 1)):
+            J += 1
+        # print(str(j))
+        # print(str(i) + " " + str((len(s)-2)) + " " + str(count) + " " + str(j-tempi))
+        if (I == (len(S)-2) and COUNT < (J-TEMPI)):
+            FLAG = 1
 
-        if _FLAG == 1:
-            # pr_Int("_I _Is: " +  str(_J-_TEMP_I))
-            if _COUNT < (_J-_TEMP_I):
-                _START = _TEMP_I
-                _END = _J
-                _COUNT = _END - _START
+        if FLAG == 1:
+            # print("i is: " +  str(j-tempi))
+            if COUNT < (J-TEMPI):
+                START = TEMPI
+                END = J
+                COUNT = END - START
 
-            _TEMP_I = _I + 1
-            _FLAG = 0
-            # pr_Int(str(_TEMP_I) + " " + str(_FLAG))
+            TEMPI = I + 1
+            FLAG = 0
+            # print(str(tempi) + " " + str(flag))
 
-        _I = _I + 1
-    pr_Int(_S[_START:_END])
+        I = I + 1
+    print(S[START:END])
 
 
-if __name__== "__ma_In__":
+if __name__== "__main__":
 	main()

@@ -40,20 +40,20 @@ def main():
         if (j == (len(s) - 1)):
             j += 1
         # print(str(j))
-        # print(str(i) + " " + str((len(s)-2)) + " " + str(count) + " " + str(j-tempx))
-        if (i == (len(s)-2) and count < (j-tempx)):
+        # print(str(i) + " " + str((len(s)-2)) + " " + str(count) + " " + str(j-tempi))
+        if (i == (len(s)-2) and count < (j-tempi)):
             flag = 1
 
         if flag == 1:
-            # print("i is: " +  str(j-tempx))
-            if count < (j-tempx):
+            # print("i is: " +  str(j-tempi))
+            if count < (j-tempi):
                 start = tempx
                 end = j
                 count = end - start
 
             tempi = i + 1
             flag = 0
-            # print(str(tempx) + " " + str(flag))
+            # print(str(tempi) + " " + str(flag))
 
         i = i + 1
     print(s[start:end])

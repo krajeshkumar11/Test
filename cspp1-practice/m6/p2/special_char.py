@@ -10,18 +10,18 @@ def main():
     str_input = raw_input()
     result = ''
     for char in str_input:
-        if checkBool(char):
+        if check_bool(char):
             result = result + ' '
         else:
             result = result + char
     print result
 
-def checkBool(char):
+'''
+Checking if given character is Special Character or not.
+'''
+def check_bool(char):
     special_character = '!@#$%^&*'
-    if char in special_character:
-        return True
-    else:
-        return False
+    return char in special_character
 
 if __name__ == "__main__":
     main()

@@ -16,7 +16,8 @@ def main():
         int_input = int_input * -1
 
     while int_input > 0:
-        product = product * int_input%10
+        rem = int_input%10
+        product = product * rem
         int_input = int_input//10
 
     print sign + str(product)

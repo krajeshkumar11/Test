@@ -20,9 +20,9 @@ def main():
             rem = int_input%10
             product = product * rem
             int_input = int_input//10
-        print sign + str(product)
+        print(sign + str(product))
     else:
-        print int_input
+        print(int_input)
 
 if __name__ == "__main__":
     main()

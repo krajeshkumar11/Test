@@ -14,7 +14,7 @@ def main():
             result = result + ' '
         else:
             result = result + char
-    print result
+    print(result)
 
 '''Checking if given character is Special Character or not'''
 

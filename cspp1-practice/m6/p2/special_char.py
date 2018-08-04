@@ -7,7 +7,7 @@ def main():
     '''
     Read string from the inputstore it in variable str_input.
     '''
-    str_input = raw_input()
+    str_input = input()
     result = ''
     for char in str_input:
         if check_bool(char):

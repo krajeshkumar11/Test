@@ -16,9 +16,10 @@ def main():
             result = result + char
     print(result)
 
-# Checking if given character is Special Character or not
-
 def checkbool(char):
+    '''
+    Checking if given character is Special Character or not.
+    '''
     special_character = '!@#$%^&*'
     return char in special_character
 

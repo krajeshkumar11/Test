@@ -10,7 +10,7 @@ def main():
     str_input = input()
     result = ''
     for char in str_input:
-        if check_bool(char):
+        if checkbool(char):
             result = result + ' '
         else:
             result = result + char
@@ -18,7 +18,7 @@ def main():
 
 # Checking if given character is Special Character or not
 
-def check_bool(char):
+def checkbool(char):
     special_character = '!@#$%^&*'
     return char in special_character
 

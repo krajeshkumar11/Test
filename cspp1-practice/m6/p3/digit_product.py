@@ -11,7 +11,6 @@ def main():
     int_input = int(input())
     sign = ''
     product = 1
-    print int_input
     if int_input < 0:
         sign = '-'
         int_input = int_input * -1

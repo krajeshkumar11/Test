@@ -10,10 +10,10 @@ def main():
     str_input = input()
     result = ''
     for char in str_input:
-        if char != '!' or char != '@' or char != '#' or char != '$' or char != '%' or char != '^' or char != '&' or char != '*':
-            result = result + char
-        else:
+        if char == '!' or char == '@' or char == '#' or char == '$' or char == '%' or char == '^' or char == '&' or char == '*':
             result = result + ' '
+        else:
+            result = result + char
     print result
 
 

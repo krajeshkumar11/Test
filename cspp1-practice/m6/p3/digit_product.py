@@ -15,13 +15,14 @@ def main():
         sign = '-'
         int_input = int_input * -1
 
-    while int_input > 0:
-        rem = int_input%10
-        product = product * rem
-        int_input = int_input//10
-
-    print sign + str(product)
-
+    if int_input > 0:
+        while int_input > 0:
+            rem = int_input%10
+            product = product * rem
+            int_input = int_input//10
+        print sign + str(product)
+    else:
+        print int_input
 
 if __name__ == "__main__":
     main()

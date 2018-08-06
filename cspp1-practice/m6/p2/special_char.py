@@ -1,12 +1,15 @@
-"""Program for special characters"""
-STR = input()
-LE = len(STR)
+"""
+special_char
+"""
+S = input()
+S1 = ""
 I = 0
-X = ""
-while I < LE:
-    if (STR[I] == '!' or STR[I] == '@' or STR[I] == '#' or STR[I] == '$' or STR[I] == '%' or STR[I] == '^' or STR[I] == '&' or STR[I] == '*'):
-        X = X + " "
+while I < len(S):
+    if S[I] == '!' or S[I] == '@' or S[I] == '#' or S[I] == '$':
+        S1 = S1 + ' '
+    elif S[I] == '%' or S[I] == '^' or S[I] == '&' or S[I] == '*':
+        S1 = S1 + ' '
     else:
-        X = X + STR[I]
-    I = I +1
-print(X)
+        S1 = S1 + S[I]
+    I = I + 1
+print(S1)

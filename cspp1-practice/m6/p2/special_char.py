@@ -8,13 +8,8 @@ def main():
     Read string from the input, store it in variable str_input.
     '''
     str_input = str(input())
-    i=
+    i=' '
     for char in str_input:
         if char == '!' or char == '@' or char == '#' or char == '$' or char == '^' or char == '&' or char == '*':
-           if 
+           print(str_input + i)
 main()
-
-
-"""
-
-"""

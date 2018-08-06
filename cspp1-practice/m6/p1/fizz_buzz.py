@@ -10,7 +10,7 @@ def main():
     '''
 n = int(input())
 i=0
-for i in range(1,n,1):
+for i in range(1,n+1,1):
     if(n%3==0 and n%5==0):
        print("fizz")
        print("buzz")
@@ -23,5 +23,5 @@ for i in range(1,n,1):
         break
     else:
         print(i)
-                 
-     
+
+

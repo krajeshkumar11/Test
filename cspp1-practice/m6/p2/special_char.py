@@ -7,27 +7,19 @@ def main():
     '''
     Read string from the input, store it in variable str_input.
     '''
-str_input = input()
-X=0
-Y=0
-Z=0
-j=0
-A=[a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-B=[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]
-C=['!','@','#','$','%','^','&','*','(',')','+']
-I=("")
-for char in str_input:
-    print(char)
-while(X<len(char)):
-     if char[j]==A[X] or char[j]==B[Y]:
-        X=X+1
-        Y=Y+1
-        j=j+1
-        print(char)
-   if char[j]==C[Z]:
-      char[Z]=I
-      print(char)
-   
- 
-print(char)
-    
+    str_input = input()
+    str_output = ""
+    array_check = ["!", "@", "#", "$", "%", "^", "&", "*"]
+    temp_i = 0
+    for i in range(len(str_input)):
+        flag = 0
+        if str_input[i] in array_check:
+            str_output += str_input[temp_i:i] + " "
+            flag = 1
+        if flag == 1:
+            temp_i = i + 1
+    if len(str_output) != len(str_input):
+        str_output += str_input[temp_i:]
+    print(str_output)
+if __name__ == "__main__":
+    main()

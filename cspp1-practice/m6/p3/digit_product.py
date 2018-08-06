@@ -1,18 +1,16 @@
-"""program to find product of digits"""
+"""
+digit_product
+"""
 N = int(input())
-COUNT = 0
-PROD = 1
-REM = 0
-TEMP = N
-if TEMP == 0:
-    print(0)
-if TEMP < 0:
-    TEMP = -(TEMP)
-while TEMP > 0:
-    REM = TEMP % 10
-    PROD = PROD * REM
-    TEMP = TEMP // 10
+M = N
+P = 1
 if N < 0:
-    print(-PROD)
-if N > 0:
-    print(PROD)
+    N = -N
+    P = P * -1
+while N >= 1:
+    P = P * (N % 10)
+    N = N // 10
+if M == 0:
+    print("0")
+else:
+    print(P)

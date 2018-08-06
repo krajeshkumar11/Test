@@ -8,20 +8,22 @@ def main():
     '''
     Read number from the input, store it in variable num.
     '''
-n = int(input())
-i=0
-for i in range(1,n+1,1):
-    if(n%3==0 and n%5==0):
-       print("fizz")
-       print("buzz")
-       break
-    elif(n%3==0):
-        print("fizz")
-        break
-    elif(n%5==0):
-        print("Buzz")
-        break
-    else:
-        print(i)
+    n = int(input())
+    i=0
+    for i in range(1,n+1,1):
+        if(n%3==0 and n%5==0):
+           print("fizz")
+           print("buzz")
+           break
+        elif(n%3==0):
+            print("fizz")
+            break
+        elif(n%5==0):
+            print("Buzz")
+            break
+        else:
+            print(i)
+
+main()
 
 

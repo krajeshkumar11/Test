@@ -27,7 +27,7 @@ def payingDebtOffInAYear(balance, annualInterestRate):
     Minimum balance
     '''
     check = True
-    mfmp = 180
+    mfmp = 0
     step = 10
     while check:
         mfmp = mfmp + step
@@ -59,7 +59,7 @@ def main():
     # data = "4773 0.2"
     data = data.split(' ')
     data = list(map(float, data))
-    print(payingDebtOffInAYear(data[0],data[1]))
+    print("Lowest Payment: " + str(payingDebtOffInAYear(data[0],data[1])))
 
 if __name__== "__main__":
     main()

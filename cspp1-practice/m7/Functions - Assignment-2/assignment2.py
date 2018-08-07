@@ -59,9 +59,9 @@ def main():
     # data = "0 0.2"
     data = data.split(' ')
     data = list(map(float, data))
-    # print(data[0])
-    if data[0] == 0.0:
-        print("Lowest Payment: " + str(0))
+    # print(type(data[0]))
+    if (data[0] == float(0.0)):
+        print("Lowest Payment : " + str(0))
     else:
         print("Lowest Payment: " + str(payingDebtOffInAYear(data[0],data[1])))
 

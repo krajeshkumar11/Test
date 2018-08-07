@@ -59,7 +59,10 @@ def main():
     # data = "4773 0.2"
     data = data.split(' ')
     data = list(map(float, data))
-    print("Lowest Payment: " + str(payingDebtOffInAYear(data[0],data[1])))
+    if data[0] == 0:
+        print("Lowest Payment: " + 0)
+    else:
+        print("Lowest Payment: " + str(payingDebtOffInAYear(data[0],data[1])))
 
 if __name__== "__main__":
     main()

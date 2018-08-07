@@ -65,7 +65,7 @@ def payingDebtOffInAYear(balance, annualInterestRate):
             # print("NOT Found mfmp: " + str(mfmp))
             check = True
 
-    return str(round(mfmp))
+    return str(mfmp)
 
 
 

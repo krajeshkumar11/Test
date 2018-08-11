@@ -34,9 +34,9 @@ def create_social_network(data):
 
     # remove the pass below and start writing your code
     # print(data)
-    print(data,"HI")
-    data = data[:len(data)-2]
-    print(data,"HELLO")
+    # print(data,"HI")
+    data = data[:len(data)-1]
+    # print(data,"HELLO")
     myDict = {}
     data_list = data.split("\n")
     for user in data_list:

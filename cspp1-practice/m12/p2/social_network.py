@@ -18,6 +18,8 @@ def follow(network, arg1, arg2):
         arg1_list = network[arg1]
         arg1_list.append(arg2)
         network[arg1] = arg1_list
+    else:
+        network[arg1] = [arg2]
 
     return network
 
@@ -49,6 +51,13 @@ def delete_person(network, arg1):
     '''
     if arg1 in network:
         del network[arg1]
+
+    users_list = network.keys()
+    for each_user in users_list:
+        each_user_list = network[each_user]
+        if arg1 in each_user_list:
+            each_user_list.remove(arg1)
+            network[each_user] = each_user_list
 
     return network
 

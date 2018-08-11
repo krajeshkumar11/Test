@@ -34,7 +34,7 @@ def create_social_network(data):
 
     # remove the pass below and start writing your code
 
-    if(len(data > 0)):
+    if(len(data) > 0):
         data = data[:len(data)-1]
         myDict = {}
         data_list = data.split("\n")

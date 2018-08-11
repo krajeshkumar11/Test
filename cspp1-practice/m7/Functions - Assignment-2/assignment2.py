@@ -31,6 +31,7 @@ def payingDebtOffInAYear(balance, annualInterestRate):
     step = 10
     while check:
         mfmp = mfmp + step
+        print("mfmp: " + str(mfmp))
         # mfmp = 310
 
         n = 12;
@@ -39,11 +40,12 @@ def payingDebtOffInAYear(balance, annualInterestRate):
         while(n >= 1):
             mub = pb - mfmp
             ubem = mub + (mir * mub)
+            print("ubem: " + str(ubem))
             pb = ubem
             n -= 1
 
         # print("balance: " + str(ubem))
-        if(ubem < 0.000001):
+        if(ubem < 0):
             # print("Found mfmp: " + str(mfmp))
             check = False
         else:
@@ -55,8 +57,8 @@ def payingDebtOffInAYear(balance, annualInterestRate):
 
 
 def main():
-    data = input()
-    # data = "0 0.2"
+    # data = input() # 3329 0.2
+    data = "3329 0.2"
     data = data.split(' ')
     data = list(map(float, data))
     # print(type(data[0]))

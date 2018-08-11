@@ -38,10 +38,11 @@ def create_social_network(data):
         data = data[:len(data)-1]
         myDict = {}
         data_list = data.split("\n")
-        for user in data_list:
-            user_details = user.split(" follows ")
-            user_friends_list = user_details[1].split(",")
-            myDict[user_details[0]] = user_friends_list
+        if " follows " in data:
+            for user in data_list:
+                user_details = user.split(" follows ")
+                user_friends_list = user_details[1].split(",")
+                myDict[user_details[0]] = user_friends_list
 
         return myDict
     else:

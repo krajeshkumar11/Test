@@ -34,25 +34,21 @@ def create_social_network(data):
 
     # remove the pass below and start writing your code
 
-    if(len(data) > 0):
-        data = data[:len(data)-1]
-        myDict = {}
-        data_list = data.split("\n")
-        if " follows " in data:
-            for user in data_list:
-                user_details = user.split(" follows ")
-                user_friends_list = user_details[1].split(",")
-                myDict[user_details[0]] = user_friends_list
+    data = data[:len(data)-1]
+    myDict = {}
+    data_list = data.split("\n")
+    if " follows " in data:
+        for user in data_list:
+            user_details = user.split(" follows ")
+            user_friends_list = user_details[1].split(",")
+            myDict[user_details[0]] = user_friends_list
 
-        return myDict
-    else:
-        return {}
+    return myDict
 
 def main():
     '''
         handling testcase input and printing output
     '''
-    # string = 'John follows Bryant,Debra,Walter\nBryant follows Olive,Ollie,Freda,Mercedes\nMercedes follows Walter,Robin,Bryant\nOlive follows John,Ollie\nDebra follows Walter,Levi,Jennie,Robin\nWalter follows John,Levi,Bryant\nLevi follows Ollie,John,Walter\nOllie follows Mercedes,Freda,Bryant\nJennie follows Levi,John,Freda,Robin\nRobin follows Ollie\nFreda follows Olive,John,Debra'
     string = ''
     lines = int(input())
     for i in range(lines):

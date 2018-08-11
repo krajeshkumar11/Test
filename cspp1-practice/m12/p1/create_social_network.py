@@ -33,18 +33,19 @@ def create_social_network(data):
     '''
 
     # remove the pass below and start writing your code
-    # print(data)
-    # print(data,"HI")
-    data = data[:len(data)-1]
-    # print(data,"HELLO")
-    myDict = {}
-    data_list = data.split("\n")
-    for user in data_list:
-        user_details = user.split(" follows ")
-        user_friends_list = user_details[1].split(",")
-        myDict[user_details[0]] = user_friends_list
 
-    return myDict
+    if(len(data > 0)):
+        data = data[:len(data)-1]
+        myDict = {}
+        data_list = data.split("\n")
+        for user in data_list:
+            user_details = user.split(" follows ")
+            user_friends_list = user_details[1].split(",")
+            myDict[user_details[0]] = user_friends_list
+
+        return myDict
+    else:
+        return {}
 
 def main():
     '''

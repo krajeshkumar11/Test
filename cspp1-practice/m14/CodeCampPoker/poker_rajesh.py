@@ -15,7 +15,7 @@ def is_straight(hand):
         Write the code for it and return True if it is a straight else return False
     '''
 
-    card_values = set(sorted(['--23456789TJQKA'.index(each_card_value) for each_card_value in hand]))
+    card_values = set(sorted([['--23456789TJQKA'.index(each_card_value)] for each_card_value in hand]))
     return len(card_values) == 5 and (max(card_values) - min (card_values) == 4)
 
     # card_value_list = []

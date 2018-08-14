@@ -14,7 +14,7 @@ def is_straight(hand):
         Think of an algorithm: given the card face value how to check if it a straight
         Write the code for it and return True if it is a straight else return False
     '''
-    if all([True if each_card_value in '2345A' else False for each_card_value in hand]):
+    if all([True if each_card_value in '2345A' else False for each_card_value,s in hand]):
         return True
 
     card_values = set(['--23456789TJQKA'.index(each_card_value) for each_card_value in hand])

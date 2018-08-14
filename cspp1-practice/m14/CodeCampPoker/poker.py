@@ -15,6 +15,15 @@ def is_straight(hand):
         Write the code for it and return True if it is a straight else return False
     '''
 
+    # flag = True
+    # for each_card_value, each_suit in hand:
+    #     if each_card_value not in '2345A':
+    #         flag = False
+    #         break
+
+    # if flag:
+    #     return flag
+
     if all([True if each_card_value in '2345A' else False for each_card_value, each_suit in hand]):
         return True
 

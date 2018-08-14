@@ -59,26 +59,33 @@ def is_flush(hand):
         Think of an algorithm: given the card suite how to check if it is a flush
         Write the code for it and return True if it is a flush else return False
     '''
-    # Empty suit List
-    card_suit_list = []
 
-    # Appending only suits to empty suit list
+    suit_set = set()
     for each_card in hand:
-        card_suit_list.append(each_card[1])
+        suit_set.add(each_card[1])
 
-    iterate_i = 0
+    return len(suit_set) == 1
 
-    # Getting suit of first card from suit list
-    check_copy = card_suit_list[iterate_i]
+    # # Empty suit List
+    # card_suit_list = []
 
-    # Checking if all cards have same suit
-    while iterate_i < len(card_suit_list)-2:
-        iterate_i += 1
-        iterate_j = iterate_i + 1
-        if card_suit_list[iterate_i]  != card_suit_list[iterate_j]:
-            return False
+    # # Appending only suits to empty suit list
+    # for each_card in hand:
+    #     card_suit_list.append(each_card[1])
 
-    return True
+    # iterate_i = 0
+
+    # # Getting suit of first card from suit list
+    # check_copy = card_suit_list[iterate_i]
+
+    # # Checking if all cards have same suit
+    # while iterate_i < len(card_suit_list)-2:
+    #     iterate_i += 1
+    #     iterate_j = iterate_i + 1
+    #     if card_suit_list[iterate_i]  != card_suit_list[iterate_j]:
+    #         return False
+
+    # return True
 
 def hand_rank(hand):
     '''

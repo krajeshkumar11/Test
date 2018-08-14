@@ -14,39 +14,44 @@ def is_straight(hand):
         Think of an algorithm: given the card face value how to check if it a straight
         Write the code for it and return True if it is a straight else return False
     '''
-    # print("Straight: ", hand)
-    card_value_list = []
-    for each_card in hand:
-        only_number = each_card[0]
-        if only_number == 'T':
-            card_value_list.append(10)
-        elif only_number == 'J':
-            card_value_list.append(11)
-        elif only_number == 'Q':
-            card_value_list.append(12)
-        elif only_number == 'K':
-            card_value_list.append(13)
-        elif only_number == 'A':
-            card_value_list.append(14)
-        else:
-            card_value_list.append(int(only_number))
+    if all([each_card_value for each_card_value in hand] in '2345A'):
+        return True
 
-    # Sorting the list in accending order
-    card_value_list.sort()
-    iterate_i = 0
+    card_values = set(['--23456789TJQKA'.index(each_card_value) for each_card_value in hand])
+    return len(card_values) == 5 and (max(card_values) - min (card_values) == 4)
 
-    # Checking if difference of last and first element in list 5
-    if card_value_list[len(card_value_list)-1] - card_value_list[0] > 5:
-        return False
+    # card_value_list = []
+    # for each_card in hand:
+    #     only_number = each_card[0]
+    #     if only_number == 'T':
+    #         card_value_list.append(10)
+    #     elif only_number == 'J':
+    #         card_value_list.append(11)
+    #     elif only_number == 'Q':
+    #         card_value_list.append(12)
+    #     elif only_number == 'K':
+    #         card_value_list.append(13)
+    #     elif only_number == 'A':
+    #         card_value_list.append(14)
+    #     else:
+    #         card_value_list.append(int(only_number))
 
-    # Checking if cards are in order
-    while iterate_i < len(card_value_list)-1:
-        iterate_j = iterate_i + 1
-        if card_value_list[iterate_i] > card_value_list[iterate_j]:
-            return False
-        iterate_i += 1
+    # # Sorting the list in accending order
+    # card_value_list.sort()
+    # iterate_i = 0
 
-    return True
+    # # Checking if difference of last and first element in list 5
+    # if card_value_list[len(card_value_list)-1] - card_value_list[0] > 5:
+    #     return False
+
+    # # Checking if cards are in order
+    # while iterate_i < len(card_value_list)-1:
+    #     iterate_j = iterate_i + 1
+    #     if card_value_list[iterate_i] > card_value_list[iterate_j]:
+    #         return False
+    #     iterate_i += 1
+
+    # return True
 
 
 

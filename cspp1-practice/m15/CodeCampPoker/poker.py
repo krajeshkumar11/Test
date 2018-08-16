@@ -217,13 +217,13 @@ def hand_rank(hand):
     if is_twopair(hand):
         return 3
     if is_onepair(hand):
-        freq_dict = get_frequencydict(get_onlyfacevalues(hand))
-        onepair_face = 0
-        for each_face in freq_dict:
-            if freq_dict[each_face] == 2:
-                onepair_face = 1/100 * int(each_face)
-                break
-        return 2 + onepair_face
+        # freq_dict = get_frequencydict(get_onlyfacevalues(hand))
+        # onepair_face = 0
+        # for each_face in freq_dict:
+        #     if freq_dict[each_face] == 2:
+        #         onepair_face = 1/100 * int(each_face)
+        #         break
+        return 2 + generate_rank(hand, 2)
     if is_highcard(hand):
         card_facevalues = get_onlyfacevalues(hand)
         highcard_face = 0

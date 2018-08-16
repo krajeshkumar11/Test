@@ -101,6 +101,14 @@ def get_onlyfacevalues(hand):
 
     return sorted(face_values)
 
+def get_handrank(hand, size, issorted = None):
+    face_values = get_onlyfacevalues(hand)
+    for each_hand in face_values:
+        if face_values.count(each_hand) == 2:
+            return 1/100 * int(each_hand)
+
+    return 0
+
 def hand_rank(hand):
     '''
         You will code this function. The goal of the function is to
@@ -144,7 +152,7 @@ def hand_rank(hand):
     if is_twopair(hand):
         return 3
     if is_onepair(hand):
-        return 2
+        return 2 + get_handrank(hand, 2)
     if is_highcard(hand):
         return 1
     return 0

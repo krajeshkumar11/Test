@@ -101,7 +101,7 @@ def get_onlyfacevalues(hand):
 
     return sorted(face_values)
 
-def get_handrank(hand, size, issorted = None):
+def get_handrank(hand, size):
     face_values = get_onlyfacevalues(hand)
 
     if size == 1:

@@ -216,20 +216,20 @@ def hand_rank(hand):
         return 4
     if is_twopair(hand):
         return 3
-    # if is_onepair(hand):
-    #     freq_dict = get_frequencydict(get_onlyfacevalues(hand))
-    #     onepair_face = 0
-    #     for each_face in freq_dict:
-    #         if freq_dict[each_face] == 2:
-    #             onepair_face = int(each_face)
-    #             break
-    #     return 2*onepair_face
-    if is_highcard(hand):
-        card_facevalues = get_onlyfacevalues(hand)
-        highcard_face = 10
-        if 'A' in card_facevalues:
-            highcard_face *= 14
-        return highcard_face
+    if is_onepair(hand):
+        freq_dict = get_frequencydict(get_onlyfacevalues(hand))
+        onepair_face = 0
+        for each_face in freq_dict:
+            if freq_dict[each_face] == 2:
+                onepair_face = int(each_face)
+                break
+        return 2*onepair_face
+    # if is_highcard(hand):
+    #     card_facevalues = get_onlyfacevalues(hand)
+    #     highcard_face = 10
+    #     if 'A' in card_facevalues:
+    #         highcard_face *= 14
+    #     return highcard_face
     return 0
 
 def poker(hands):

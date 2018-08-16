@@ -73,13 +73,13 @@ def is_fullhouse(hand):
     for each_card in hand:
         face_set.add(each_card[0])
 
-    set_toList = list(face_set)
+    set_tolist = list(face_set)
 
     if len(face_set) == 2:
         freq_dict = get_frequencydict(hand)
         two_count = 0
         three_count = 0
-        for each_face in set_toList:
+        for each_face in set_tolist:
             if freq_dict[each_face] == 3:
                 three_count += 1
             elif freq_dict[each_face] == 2:
@@ -87,8 +87,8 @@ def is_fullhouse(hand):
 
         if two_count != 2 and three_count != 3:
             return False
-        else:
-            return True
+
+        return True
 
     return False
 
@@ -110,12 +110,12 @@ def is_twopair(hand):
     for each_card in hand:
         face_set.add(each_card[0])
 
-    set_toList = list(face_set)
+    set_tolist = list(face_set)
     if len(face_set) == 3:
         freq_dict = get_frequencydict(hand)
         two_count = 0
         one_count = 0
-        for each_face in set_toList:
+        for each_face in set_tolist:
             if freq_dict[each_face] == 2:
                 two_count += 1
             elif freq_dict[each_face] == 1:
@@ -123,8 +123,8 @@ def is_twopair(hand):
 
         if two_count != 2 and one_count != 1:
             return False
-        else:
-            return True
+
+        return True
 
     return False
 
@@ -143,14 +143,14 @@ def get_frequencydict(hand):
         Generate Dictionary with frequencies.
     """
     print(hand)
-    freq_Dict = {}
+    freq_dict = {}
     for each_card in hand:
-        if each_card not in freq_Dict:
-            freq_Dict[each_card] = 1
+        if each_card not in freq_dict:
+            freq_dict[each_card] = 1
         else:
-            freq_Dict[each_card] += 1
+            freq_dict[each_card] += 1
 
-    return freq_Dict
+    return freq_dict
 
 def hand_rank(hand):
     '''

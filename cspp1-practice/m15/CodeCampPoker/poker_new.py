@@ -113,6 +113,10 @@ def get_handrank(hand, size, issorted = None):
 
     return 0
 
+def get_suitrank(hand):
+    face_values = get_onlyfacevalues(hand)
+    return 1/100 * sum(face_values)
+
 def hand_rank(hand):
     '''
         You will code this function. The goal of the function is to
@@ -142,7 +146,7 @@ def hand_rank(hand):
     # print(is_highcard(hand))
 
     if is_straight(hand) and is_flush(hand):
-        return 9
+        return 9 +get_suitrank(hand)
     if is_fourofakind(hand):
         return 8
     if is_fullhouse(hand):

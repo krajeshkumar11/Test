@@ -227,7 +227,7 @@ def hand_rank(hand):
     if is_highcard(hand):
         card_facevalues = get_onlyfacevalues(hand)
         highcard_face = 10
-        if 'A' in card_facevalues:
+        if '14' in card_facevalues:
             highcard_face *= 14
         return highcard_face
     return 0

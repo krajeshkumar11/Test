@@ -164,7 +164,7 @@ def get_frequencydict(hand):
 def get_onlyfacevalues(hand):
     face_values = []
     for each_card in hand:
-        face_values.append('--23456789TJQKA'.index(each_card[0]))
+        face_values.append(each_card[0])
 
     return face_values
 
@@ -227,7 +227,7 @@ def hand_rank(hand):
     if is_highcard(hand):
         card_facevalues = get_onlyfacevalues(hand)
         highcard_face = 10
-        if '14' in card_facevalues:
+        if 'A' in card_facevalues
             highcard_face *= 14
         return highcard_face
     return 0

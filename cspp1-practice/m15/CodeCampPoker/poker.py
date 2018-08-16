@@ -49,29 +49,21 @@ def is_flush(hand):
 
     # return len(cards_suit) == 1
 #
-    suit_set = set()
-    for each_card in hand:
-        suit_set.add(each_card[1])
-
+    suit_set = set(get_onlysuitvalues(hand))
     return len(suit_set) == 1
 
 def is_foudofkind(hand):
     """
         Four of a kind
     """
-    face_set = set()
-    for each_card in hand:
-        face_set.add(each_card[0])
-
+    face_set = set(get_onlyfacevalues(hand))
     return len(face_set) == 2
 
 def is_fullhouse(hand):
     """
         Full House
     """
-    face_set = set()
-    for each_card in hand:
-        face_set.add(each_card[0])
+    face_set = set(get_onlyfacevalues(hand))
 
     set_tolist = list(face_set)
 
@@ -96,19 +88,14 @@ def is_threeofkind(hand):
     """
         Three of a Kind
     """
-    face_set = set()
-    for each_card in hand:
-        face_set.add(each_card[0])
-
+    face_set = set(get_onlyfacevalues(hand))
     return len(face_set) == 3
 
 def is_twopair(hand):
     """
         Two of a Kind
     """
-    face_set = set()
-    for each_card in hand:
-        face_set.add(each_card[0])
+    face_set = set(get_onlyfacevalues(hand))
 
     set_tolist = list(face_set)
     if len(face_set) == 3:
@@ -132,10 +119,7 @@ def is_onepair(hand):
     """
         One of a Kind
     """
-    face_set = set()
-    for each_card in hand:
-        face_set.add(each_card[0])
-
+    face_set = set(get_onlyfacevalues(hand))
     return len(face_set) == 4
 
 def is_highcard(hand):

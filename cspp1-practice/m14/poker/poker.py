@@ -55,6 +55,14 @@ def is_flush(hand):
 
     return len(suit_set) == 1
 
+def is_foudofkind(hand):
+    face_set = set()
+    for each_card in hand:
+        face_set.add(each_card[0])
+
+    return len(face_set) == 2
+
+
 def hand_rank(hand):
     '''
         You will code this function. The goal of the function is to

@@ -192,7 +192,9 @@ def hand_rank(hand):
     # get_frequencydict(hand)
 
     if is_straight(hand) and is_flush(hand):
-        return 9
+        face_values = get_onlyfacevalues(hand)
+        totalstraight_face = sum(face_values) / 100
+        return 9 + totalstraight_face
     if is_foudofkind(hand):
         return 8
     if is_fullhouse(hand):

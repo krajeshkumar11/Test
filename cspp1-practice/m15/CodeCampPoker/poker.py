@@ -207,7 +207,7 @@ def hand_rank(hand):
     if is_foudofkind(hand):
         return 8 + generate_rank(hand, 4)
     if is_fullhouse(hand):
-        return 7
+        return 7 + generate_rank(hand, 3) + generate_rank(hand, 2)
     if is_flush(hand):
         return 6
     if is_straight(hand):

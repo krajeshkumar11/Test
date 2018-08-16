@@ -229,11 +229,11 @@ def hand_rank(hand):
         return 5
     if is_threeofkind(hand, 3):
         return 4 + generate_rank(hand, 3)
-    if is_twopair(hand, 3):
+    if is_twopair(hand):
         return 3 + generate_rank(hand, 2) + generate_rank(hand, 2, True)
     if is_onepair(hand, 4):
         return 2 + generate_rank(hand, 2)
-    if is_highcard(hand):
+    if is_highcard(hand, 5):
         return 1 + generate_rank(hand, 1)
     return 0
 

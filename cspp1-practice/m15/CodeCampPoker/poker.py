@@ -164,7 +164,7 @@ def get_frequencydict(hand):
 def get_onlyfacevalues(hand):
     face_values = []
     for each_card in hand:
-        face_values.append(each_card[0])
+        face_values.append('--23456789TJQKA'.index(each_card[0]))
 
     return face_values
 

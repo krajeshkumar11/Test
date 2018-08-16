@@ -30,7 +30,7 @@ def is_straight(hand):
     # # hand = ['2D', '3S', '5S', '4C', '6D']
 
     card_values = sorted(get_onlyfacevalues(hand))
-    if card_values == [2, 3, 4, 5, 14]
+    if card_values == [2, 3, 4, 5, 14]:
         card_values = [1, 2, 3, 4, 5]
     card_values = set(card_values)
     return len(card_values) == 5 and (max(card_values) - min (card_values) == 4)

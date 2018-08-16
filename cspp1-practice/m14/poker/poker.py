@@ -76,21 +76,21 @@ def is_fullhouse(hand):
     set_toList = list(face_set)
 
     if len(face_set) == 2:
-        freq_Dict = get_frequencyDict(hand)
+        freq_dict = get_frequencydict(hand)
         two_count = 0
         three_count = 0
         for each_face in set_toList:
-            if freq_Dict[each_face] == 3:
+            if freq_dict[each_face] == 3:
                 three_count += 1
-            elif freq_Dict[each_face] == 2:
+            elif freq_dict[each_face] == 2:
                 two_count += 1
 
         if two_count != 2 and three_count != 3:
             return False
         else:
             return True
-    else:
-        return False
+
+    return False
 
 def is_threeofkind(hand):
     """
@@ -112,21 +112,21 @@ def is_twopair(hand):
 
     set_toList = list(face_set)
     if len(face_set) == 3:
-        freq_Dict = get_frequencyDict(hand)
+        freq_dict = get_frequencydict(hand)
         two_count = 0
         one_count = 0
         for each_face in set_toList:
-            if freq_Dict[each_face] == 2:
+            if freq_dict[each_face] == 2:
                 two_count += 1
-            elif freq_Dict[each_face] == 1:
+            elif freq_dict[each_face] == 1:
                 one_count += 1
 
         if two_count != 2 and one_count != 1:
             return False
         else:
             return True
-    else:
-        return False
+
+    return False
 
 def is_onepair(hand):
     """
@@ -138,7 +138,10 @@ def is_onepair(hand):
 
     return len(face_set) == 4
 
-def get_frequencyDict(hand):
+def get_frequencydict(hand):
+    """
+        Generate Dictionary with frequencies.
+    """
     print(hand)
     freq_Dict = {}
     for each_card in hand:
@@ -173,7 +176,7 @@ def hand_rank(hand):
     # third would be a straight with the return value 1
     # any other hand would be the fourth best with the return value 0
     # max in poker function uses these return values to select the best hand
-    # get_frequencyDict(hand)
+    # get_frequencydict(hand)
     if is_straight(hand) and is_flush(hand):
         return 8
     if is_foudofkind(hand):

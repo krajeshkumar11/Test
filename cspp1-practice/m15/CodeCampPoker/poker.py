@@ -55,6 +55,9 @@ def is_flush(hand):
 
     return len(suit_set) == 1
 
+def is_royalflush(hand):
+    return False
+
 def is_foudofkind(hand):
     """
         Four of a kind
@@ -138,11 +141,17 @@ def is_onepair(hand):
 
     return len(face_set) == 4
 
+def is_highcard(hand):
+    """
+        High Cards
+    """
+    face_set = set(get_onlyfacevalues(hand))
+    return len(face_set) == 5
+
 def get_frequencydict(hand):
     """
         Generate Dictionary with frequencies.
     """
-    print(hand)
     freq_dict = {}
     for each_card in hand:
         if each_card not in freq_dict:
@@ -151,6 +160,20 @@ def get_frequencydict(hand):
             freq_dict[each_card] += 1
 
     return freq_dict
+
+def get_onlyfacevalues(hand):
+    face_values = []
+    for each_card in hand:
+        face_values.append(each_card[0])
+
+    return face_values
+
+def get_onlysuitvalues(hand):
+    suit_values = []
+    for each_card in hand:
+        suit_values.append(each_card[1])
+
+    return suit_values
 
 def hand_rank(hand):
     '''
@@ -177,22 +200,36 @@ def hand_rank(hand):
     # any other hand would be the fourth best with the return value 0
     # max in poker function uses these return values to select the best hand
     # get_frequencydict(hand)
+    if is_royalflush(hand):
+        return 10
     if is_straight(hand) and is_flush(hand):
-        return 8
+        return 9
     if is_foudofkind(hand):
-        return 7
+        return 8
     if is_fullhouse(hand):
-        return 6
+        return 7
     if is_flush(hand):
-        return 5
+        return 6
     if is_straight(hand):
-        return 4
+        return 5
     if is_threeofkind(hand):
-        return 3
+        return 4
     if is_twopair(hand):
-        return 2
+        return 3
     if is_onepair(hand):
-        return 1
+        freq_dict = get_frequencydict(get_onlyfacevalues(hand))
+        onepair_face = 0
+        for each_face in freq_dict:
+            if freq_dict[each_face] == 2:
+                onepair_face = int(each_face)
+                break
+        return 2*onepair_face
+    if is_highcard(hand):
+        card_facevalues = get_onlyfacevalues(hand)
+        highcard_face = 10
+        if 'A' in card_facevalues:
+            highcard_face *= 14
+        return highcard_face
     return 0
 
 def poker(hands):

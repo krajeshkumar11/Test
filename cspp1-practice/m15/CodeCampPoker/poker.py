@@ -133,18 +133,25 @@ def is_highcard(hand):
     return len(face_set) == 5
 
 def generate_rank(hand, n, issorted = None):
+    if n == 1:
+        card_facevalues = get_onlyfacevalues(hand)
+        highcard_face = 0
+        if 14 in card_facevalues:
+            highcard_face = 1/100 * 14
+        return highcard_face
+
     freq_dict = {}
     if issorted:
         freq_dict = get_frequencydict(sorted(get_onlyfacevalues(hand), reverse = True))
     else:
         freq_dict = get_frequencydict(sorted(get_onlyfacevalues(hand)))
 
-    onepair_face = 0
+    hand_rank = 0
     for each_face in freq_dict:
         if freq_dict[each_face] == n:
-            onepair_face = 1/100 * int(each_face)
+            hand_rank = 1/100 * int(each_face)
             break
-    return onepair_face
+    return hand_rank
 
 def get_frequencydict(hand):
     """
@@ -224,11 +231,11 @@ def hand_rank(hand):
     if is_onepair(hand):
         return 2 + generate_rank(hand, 2)
     if is_highcard(hand):
-        card_facevalues = get_onlyfacevalues(hand)
-        highcard_face = 0
-        if 14 in card_facevalues:
-            highcard_face = 1/100 * 14
-        return 1 + highcard_face
+        # card_facevalues = get_onlyfacevalues(hand)
+        # highcard_face = 0
+        # if 14 in card_facevalues:
+        #     highcard_face = 1/100 * 14
+        return 1 + generate_rank(hand, 1)
     return 0
 
 def poker(hands):

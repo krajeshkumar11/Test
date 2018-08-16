@@ -56,12 +56,98 @@ def is_flush(hand):
     return len(suit_set) == 1
 
 def is_foudofkind(hand):
+    """
+        Four of a kind
+    """
     face_set = set()
     for each_card in hand:
         face_set.add(each_card[0])
 
     return len(face_set) == 2
 
+def is_fullhouse(hand):
+    """
+        Full House
+    """
+    face_set = set()
+    for each_card in hand:
+        face_set.add(each_card[0])
+
+    set_toList = list(face_set)
+
+    if len(face_set) == 2:
+        freq_Dict = get_frequencyDict(hand)
+        two_count = 0
+        three_count = 0
+        for each_face in set_toList:
+            if freq_Dict[each_face] == 3:
+                three_count += 1
+            elif freq_Dict[each_face] == 2:
+                two_count += 1
+
+        if two_count != 2 and three_count != 3:
+            return False
+        else:
+            return True
+    else:
+        return False
+
+def is_threeofkind(hand):
+    """
+        Three of a Kind
+    """
+    face_set = set()
+    for each_card in hand:
+        face_set.add(each_card[0])
+
+    return len(face_set) == 3
+
+def is_twopair(hand):
+    """
+        Two of a Kind
+    """
+    face_set = set()
+    for each_card in hand:
+        face_set.add(each_card[0])
+
+    set_toList = list(face_set)
+    if len(face_set) == 3:
+        freq_Dict = get_frequencyDict(hand)
+        two_count = 0
+        one_count = 0
+        for each_face in set_toList:
+            if freq_Dict[each_face] == 2:
+                two_count += 1
+            elif freq_Dict[each_face] == 1:
+                one_count += 1
+
+        if two_count != 2 and one_count != 1:
+            return False
+        else:
+            return True
+    else:
+        return False
+
+def is_onepair(hand):
+    """
+        One of a Kind
+    """
+    face_set = set()
+    for each_card in hand:
+        face_set.add(each_card[0])
+
+    return len(face_set) == 4
+
+def get_frequencyDict(hand):
+    print(hand)
+    freq_Dict = {}
+    for each_card in hand:
+        if each_card not in freq_Dict:
+            freq_Dict[each_card] = 1
+        else:
+            freq_Dict[each_card] += 1
+
+    return freq_Dict
 
 def hand_rank(hand):
     '''
@@ -87,12 +173,22 @@ def hand_rank(hand):
     # third would be a straight with the return value 1
     # any other hand would be the fourth best with the return value 0
     # max in poker function uses these return values to select the best hand
-
+    # get_frequencyDict(hand)
     if is_straight(hand) and is_flush(hand):
-        return 3
+        return 8
+    if is_foudofkind(hand):
+        return 7
+    if is_fullhouse(hand):
+        return 6
     if is_flush(hand):
-        return 2
+        return 5
     if is_straight(hand):
+        return 4
+    if is_threeofkind(hand):
+        return 3
+    if is_twopair(hand):
+        return 2
+    if is_onepair(hand):
         return 1
     return 0
 
@@ -106,8 +202,6 @@ def poker(hands):
 
         Output: Return the winning poker hand
     '''
-    # print (hands)
-
     # the line below may be new to you
     # max function is provided by python library
     # learn how it works, in particular the key argument, from the link

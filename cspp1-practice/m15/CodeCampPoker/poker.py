@@ -137,11 +137,9 @@ def kind(hand, size):
 def generate_rank(hand, n, issorted = None):
 
     if n == 1:
-        card_facevalues = get_onlyfacevalues(hand)
-        highcard_face = 0
-        if 14 in card_facevalues:
-            highcard_face = 1/100 * 14
-        return highcard_face
+        # card_facevalues = sorted(get_onlyfacevalues(hand))
+        # highcard_face =  1/100 * max(card_facevalues)
+        return 1/100 * max(sorted(get_onlyfacevalues(hand)))
 
     freq_dict = {}
     if issorted:

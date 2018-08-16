@@ -224,7 +224,7 @@ def hand_rank(hand):
         onepair_face = 0
         for each_face in freq_dict:
             if freq_dict[each_face] == 2:
-                onepair_face = int(each_face//10)
+                onepair_face = int(each_face)//10
                 break
         return 2*onepair_face
     elif is_highcard(hand):

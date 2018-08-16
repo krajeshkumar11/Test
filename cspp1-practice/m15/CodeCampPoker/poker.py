@@ -190,19 +190,19 @@ def hand_rank(hand):
 
     if is_straight(hand) and is_flush(hand):
         return 9
-    elif is_foudofkind(hand):
+    if is_foudofkind(hand):
         return 8
-    elif is_fullhouse(hand):
+    if is_fullhouse(hand):
         return 7
-    elif is_flush(hand):
+    if is_flush(hand):
         return 6
-    elif is_straight(hand):
+    if is_straight(hand):
         return 5
-    elif is_threeofkind(hand):
+    if is_threeofkind(hand):
         return 4
-    elif is_twopair(hand):
+    if is_twopair(hand):
         return 3
-    elif is_onepair(hand):
+    if is_onepair(hand):
         freq_dict = get_frequencydict(get_onlyfacevalues(hand))
         onepair_face = 0
         for each_face in freq_dict:
@@ -210,7 +210,7 @@ def hand_rank(hand):
                 onepair_face = int(each_face)/100 * int(each_face)
                 break
         return 2 + onepair_face
-    elif is_highcard(hand):
+    if is_highcard(hand):
         card_facevalues = get_onlyfacevalues(hand)
         highcard_face = 0
         if 14 in card_facevalues:

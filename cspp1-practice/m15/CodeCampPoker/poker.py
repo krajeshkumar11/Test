@@ -133,7 +133,12 @@ def is_highcard(hand):
     return len(face_set) == 5
 
 def generate_rank(hand, n, issorted = None):
-    freq_dict = get_frequencydict(sorted(get_onlyfacevalues(hand)))
+    freq_dict = {}
+    if issorted:
+        freq_dict = get_frequencydict(sorted(get_onlyfacevalues(hand), reverse = True))
+    else:
+        freq_dict = get_frequencydict(sorted(get_onlyfacevalues(hand)))
+
     onepair_face = 0
     for each_face in freq_dict:
         if freq_dict[each_face] == n:
@@ -215,8 +220,7 @@ def hand_rank(hand):
     if is_threeofkind(hand):
         return 4 + generate_rank(hand, 3)
     if is_twopair(hand):
-        return 3
-        # + generate_rank(hand, 2) + generate_rank(hand, 2, True)
+        return 3 + generate_rank(hand, 2) + generate_rank(hand, 2, True)
     if is_onepair(hand):
         return 2 + generate_rank(hand, 2)
     if is_highcard(hand):

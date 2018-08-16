@@ -55,8 +55,6 @@ def is_flush(hand):
     suit_set = set(get_onlysuitvalues(hand))
     return len(suit_set) == 1
 
-
-
 def is_fullhouse(hand):
     """
         Full House
@@ -133,6 +131,10 @@ def is_highcard(hand, size):
 def kind(hand, size):
     face_set = set(get_onlyfacevalues(hand))
     return len(face_set) == size
+
+def generate_suit_rank(hand):
+    # face_set = get_onlyfacevalues(hand)
+    return 1/100 * sum(get_onlyfacevalues(hand))
 
 def generate_rank(hand, n, issorted = None):
 
@@ -222,9 +224,9 @@ def hand_rank(hand):
     if is_fullhouse(hand):
         return 7 + generate_rank(hand, 3) + generate_rank(hand, 2)
     if is_flush(hand):
-        return 6
+        return 6 + generate_suit_rank(hand)
     if is_straight(hand):
-        return 5
+        return 5 + generate_suit_rank(hand)
     if is_threeofkind(hand, 3):
         return 4 + generate_rank(hand, 3)
     if is_twopair(hand):

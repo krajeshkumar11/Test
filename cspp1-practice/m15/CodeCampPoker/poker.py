@@ -55,9 +55,6 @@ def is_flush(hand):
 
     return len(suit_set) == 1
 
-def is_royalflush(hand):
-    return False
-
 def is_foudofkind(hand):
     """
         Four of a kind
@@ -162,6 +159,9 @@ def get_frequencydict(hand):
     return freq_dict
 
 def get_onlyfacevalues(hand):
+    """
+        Getting only Face Values
+    """
     face_values = []
     for each_card in hand:
         face_values.append('--23456789TJQKA'.index(each_card[0]))
@@ -169,6 +169,9 @@ def get_onlyfacevalues(hand):
     return face_values
 
 def get_onlysuitvalues(hand):
+    """
+        Getting only Suit Values
+    """
     suit_values = []
     for each_card in hand:
         suit_values.append(each_card[1])

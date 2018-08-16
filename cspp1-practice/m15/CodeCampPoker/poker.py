@@ -55,12 +55,7 @@ def is_flush(hand):
     suit_set = set(get_onlysuitvalues(hand))
     return len(suit_set) == 1
 
-def is_foudofkind(hand):
-    """
-        Four of a kind
-    """
-    face_set = set(get_onlyfacevalues(hand))
-    return len(face_set) == 2
+
 
 def is_fullhouse(hand):
     """
@@ -87,13 +82,6 @@ def is_fullhouse(hand):
 
     return False
 
-def is_threeofkind(hand):
-    """
-        Three of a Kind
-    """
-    face_set = set(get_onlyfacevalues(hand))
-    return len(face_set) == 3
-
 def is_twopair(hand):
     """
         Two of a Kind
@@ -118,21 +106,36 @@ def is_twopair(hand):
 
     return False
 
-def is_onepair(hand):
+def is_fourofkind(hand, size):
+    """
+        Four of a kind
+    """
+    return kind(hand, size)
+
+def is_threeofkind(hand, size):
+    """
+        Three of a Kind
+    """
+    return kind(hand, size)
+
+def is_onepair(hand, size):
     """
         One of a Kind
     """
-    face_set = set(get_onlyfacevalues(hand))
-    return len(face_set) == 4
+    return kind(hand, size)
 
-def is_highcard(hand):
+def is_highcard(hand, size):
     """
         High Cards
     """
+    return kind(hand, size)
+
+def kind(hand, size):
     face_set = set(get_onlyfacevalues(hand))
-    return len(face_set) == 5
+    return len(face_set) == size
 
 def generate_rank(hand, n, issorted = None):
+
     if n == 1:
         card_facevalues = get_onlyfacevalues(hand)
         highcard_face = 0
@@ -216,7 +219,7 @@ def hand_rank(hand):
         face_values = get_onlyfacevalues(hand)
         totalstraight_face = sum(face_values) / 100
         return 9 + totalstraight_face
-    if is_foudofkind(hand):
+    if is_fourofkind(hand, 2):
         return 8 + generate_rank(hand, 4)
     if is_fullhouse(hand):
         return 7 + generate_rank(hand, 3) + generate_rank(hand, 2)
@@ -224,17 +227,13 @@ def hand_rank(hand):
         return 6
     if is_straight(hand):
         return 5
-    if is_threeofkind(hand):
+    if is_threeofkind(hand, 3):
         return 4 + generate_rank(hand, 3)
-    if is_twopair(hand):
+    if is_twopair(hand, 3):
         return 3 + generate_rank(hand, 2) + generate_rank(hand, 2, True)
-    if is_onepair(hand):
+    if is_onepair(hand, 4):
         return 2 + generate_rank(hand, 2)
     if is_highcard(hand):
-        # card_facevalues = get_onlyfacevalues(hand)
-        # highcard_face = 0
-        # if 14 in card_facevalues:
-        #     highcard_face = 1/100 * 14
         return 1 + generate_rank(hand, 1)
     return 0
 

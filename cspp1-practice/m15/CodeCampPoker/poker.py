@@ -132,8 +132,8 @@ def is_highcard(hand):
     face_set = set(get_onlyfacevalues(hand))
     return len(face_set) == 5
 
-def generate_rank(hand, n):
-    freq_dict = get_frequencydict(get_onlyfacevalues(hand))
+def generate_rank(hand, n, sorted = None):
+    freq_dict = get_frequencydict(sorted(get_onlyfacevalues(hand)))
     onepair_face = 0
     for each_face in freq_dict:
         if freq_dict[each_face] == n:
@@ -216,6 +216,7 @@ def hand_rank(hand):
         return 4 + generate_rank(hand, 3)
     if is_twopair(hand):
         return 3
+        # + generate_rank(hand, 2) + generate_rank(hand, 2, True)
     if is_onepair(hand):
         return 2 + generate_rank(hand, 2)
     if is_highcard(hand):

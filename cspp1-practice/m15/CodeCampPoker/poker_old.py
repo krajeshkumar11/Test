@@ -29,10 +29,7 @@ def is_straight(hand):
     # print(updated_hand_cards)
     # # hand = ['2D', '3S', '5S', '4C', '6D']
 
-    card_values = sorted(get_onlyfacevalues(hand))
-    if card_values == [2, 3, 4, 5, 14]
-        card_values = [1, 2, 3, 4, 5]
-    card_values = set(card_values)
+    card_values = set(['--23456789TJQKA'.index(c) for c, s in hand])
     return len(card_values) == 5 and (max(card_values) - min (card_values) == 4)
 
 def is_flush(hand):

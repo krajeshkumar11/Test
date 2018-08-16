@@ -224,15 +224,15 @@ def hand_rank(hand):
         onepair_face = 0
         for each_face in freq_dict:
             if freq_dict[each_face] == 2:
-                onepair_face = int(each_face)//10
+                onepair_face = int(each_face)/100
                 break
-        return 2*onepair_face
+        return 2 + onepair_face
     elif is_highcard(hand):
         card_facevalues = get_onlyfacevalues(hand)
         highcard_face = 0
         if 'A' in card_facevalues:
-            highcard_face = 14//10
-        return highcard_face
+            highcard_face = 1/100 * 14
+        return 1 + highcard_face
     return 0
 
 def poker(hands):

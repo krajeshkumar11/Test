@@ -103,6 +103,10 @@ def get_onlyfacevalues(hand):
 
 def get_handrank(hand, size, issorted = None):
     face_values = get_onlyfacevalues(hand)
+
+    if size == 1:
+        return 1/100 * max(face_values)
+
     for each_hand in face_values:
         if face_values.count(each_hand) == 2:
             return 1/100 * int(each_hand)
@@ -154,7 +158,7 @@ def hand_rank(hand):
     if is_onepair(hand):
         return 2 + get_handrank(hand, 2)
     if is_highcard(hand):
-        return 1
+        return 1 + get_handrank(hand, 1)
     return 0
 
 def poker(hands):

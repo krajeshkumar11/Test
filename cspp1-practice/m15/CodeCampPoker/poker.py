@@ -146,7 +146,7 @@ def is_highcard(hand):
         High Cards
     """
     face_set = set(get_onlyfacevalues(hand))
-    return len(face_set) == 5 and not is_straight(hand)
+    return len(face_set) == 5 and is_straight(hand) == False
 
 def get_frequencydict(hand):
     """

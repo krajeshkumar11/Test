@@ -224,12 +224,12 @@ def hand_rank(hand):
     #             onepair_face = int(each_face)
     #             break
     #     return 2*onepair_face
-    # if is_highcard(hand):
-    #     card_facevalues = get_onlyfacevalues(hand)
-    #     highcard_face = 10
-    #     if 'A' in card_facevalues:
-    #         highcard_face *= 14
-    #     return highcard_face
+    if is_highcard(hand):
+        card_facevalues = get_onlyfacevalues(hand)
+        highcard_face = 10
+        if 'A' in card_facevalues:
+            highcard_face *= 14
+        return highcard_face
     return 0
 
 def poker(hands):

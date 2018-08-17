@@ -29,16 +29,18 @@ def get_frequencydictionary(word_list_1, word_list_2):
     freq_dict = {}
 
     for each_word in word_list_1:
-        if each_word not in freq_dict:
-            freq_dict[each_word] = [1, 0]
-        else:
-            freq_dict[each_word][0] += 1
+        if len(each_word) > 0:
+            if each_word not in freq_dict:
+                freq_dict[each_word] = [1, 0]
+            else:
+                freq_dict[each_word][0] += 1
 
     for each_word in word_list_2:
-        if each_word not in freq_dict:
-            freq_dict[each_word] = [0, 1]
-        else:
-            freq_dict[each_word][1] += 1
+        if len(each_word) > 0:
+            if each_word not in freq_dict:
+                freq_dict[each_word] = [0, 1]
+            else:
+                freq_dict[each_word][1] += 1
 
     return freq_dict
 

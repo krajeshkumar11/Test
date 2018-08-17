@@ -11,7 +11,7 @@ def tokenize(s):
 def vectorize(dictionary, words, index):
 	stop_words = load_stopwords('stopwords.txt')
 	for w in words:
-		if w not in stop_words:
+		if w not in stop_words and len(w) > 0:
 			if w not in dictionary: dictionary[w] = [0,0]
 			dictionary[w][index] += 1
 	return dictionary
@@ -29,7 +29,7 @@ def similarity(d1, d2):
     dictionary = dict()
     dictionary = vectorize(dictionary, tokenize(d1), 0)
     dictionary = vectorize(dictionary, tokenize(d2), 1)
-    print(sorted(dictionary[""]))
+    # print(sorted(dictionary[""]))
     return compute_distance(dictionary)
 
 def load_stopwords(filename):

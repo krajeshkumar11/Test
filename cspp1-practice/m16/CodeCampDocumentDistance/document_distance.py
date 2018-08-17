@@ -89,7 +89,7 @@ def similarity(dict1, dict2):
         denominator_square2.append(each_word_freq[1]**2)
 
     denominator = int(math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2)))
-    print(denominator)
+    # print(denominator)
 
     return float(numerator/denominator)
 

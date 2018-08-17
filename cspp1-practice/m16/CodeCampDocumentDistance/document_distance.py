@@ -88,10 +88,10 @@ def similarity(dict1, dict2):
         denominator_square1.append(each_word_freq[0]**2)
         denominator_square2.append(each_word_freq[1]**2)
 
-    denominator = math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2))
-    # print(math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2)))
+    denominator = int(math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2)))
+    print(denominator)
 
-    return numerator/denominator
+    return float(numerator/denominator)
 
 
 def load_stopwords(filename):

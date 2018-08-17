@@ -17,7 +17,7 @@ def clean_up(data):
     # # print(updated_data_list)
     # return updated_data_list
 
-    return [re.sub("[^a-z']+", "", each_word.strip()) for each_word in data.lower().split(" ")]
+    return [re.sub("[^a-z]+", "", each_word.strip()) for each_word in data.lower().split(" ")]
 
 def remove_stop_words(words_list):
     """

@@ -13,7 +13,7 @@ def clean_up(data):
     updated_data_list = []
     # print(data_list)
     for each_word in data_list:
-        updated_data_list.append(re.sub("[^a-zA-Z]+", "", each_word).strip())
+        updated_data_list.append(re.sub("[^a-z]+", "", each_word).strip())
 
     return updated_data_list
 
@@ -61,24 +61,25 @@ def similarity(dict1, dict2):
     list_two = clean_up(dict2)
     list_two = remove_stop_words(list_two)
 
-    # print(get_words_frequency(list_one, list_two))
-
     word_frequency = get_words_frequency(list_one, list_two)
     numerator_product = []
     for each in word_frequency:
         each_word_freq = word_frequency[each]
         numerator_product.append(each_word_freq[0] * each_word_freq[1])
 
+    # print(numerator_product)
     numerator = sum(numerator_product)
+    # print(numerator)
     denominator_square1 = []
     denominator_square2 = []
 
     for each in word_frequency:
         each_word_freq = word_frequency[each]
-        denominator_square1.append(each_word_freq[0])
-        denominator_square2.append(each_word_freq[1])
+        denominator_square1.append(each_word_freq[0]^2)
+        denominator_square2.append(each_word_freq[1]^2)
 
     denominator = math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2))
+    print(math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2)))
 
     return numerator/denominator
 

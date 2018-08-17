@@ -8,13 +8,12 @@ def clean_up(data):
     """
         Compute to remove non srings from given string and return list.
     """
-    data = data.lower()
-    data_list = data.split(" ")
+    data_list = data.lower().split(" ")
     updated_data_list = []
     # print(data_list)
     for each_word in data_list:
         # each_word_list = each_word.split("'")
-        updated_data_list.append(re.sub("[^a-z']+", "", each_word).strip())
+        updated_data_list.append(re.sub("[^a-z']+", "", each_word.strip()))
     # print(updated_data_list)
     return updated_data_list
 

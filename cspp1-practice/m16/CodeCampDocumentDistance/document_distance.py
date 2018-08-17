@@ -35,23 +35,25 @@ def get_words_frequency(words_list1, words_list2):
     """
         Compute word frequency from given word lists.
     """
+
     word_frequency = {}
     for each_word in words_list1:
-        if each_word not in word_frequency:
-            # print(each_word)
-            word_frequency[each_word] = [1, 0]
-        else:
-            frequency_list = word_frequency[each_word]
-            frequency_list[0] += 1
-            word_frequency[each_word] = frequency_list
+        if len(each_word) > 0:
+            if each_word not in word_frequency:
+                word_frequency[each_word] = [1, 0]
+            else:
+                frequency_list = word_frequency[each_word]
+                frequency_list[0] += 1
+                word_frequency[each_word] = frequency_list
 
     for each_word in words_list2:
-        if each_word not in word_frequency:
-            word_frequency[each_word] = [0, 1]
-        else:
-            frequency_list = word_frequency[each_word]
-            frequency_list[1] += 1
-            word_frequency[each_word] = frequency_list
+        if len(each_word) > 0:
+            if each_word not in word_frequency:
+                word_frequency[each_word] = [0, 1]
+            else:
+                frequency_list = word_frequency[each_word]
+                frequency_list[1] += 1
+                word_frequency[each_word] = frequency_list
     return word_frequency
 
 def compute_distance(list_one, list_two):
@@ -74,7 +76,7 @@ def compute_distance(list_one, list_two):
         denominator_square1.append(each_word_freq[0]**2)
         denominator_square2.append(each_word_freq[1]**2)
 
-    denominator = int(math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2)))
+    denominator = math.sqrt(sum(denominator_square1)) * math.sqrt(sum(denominator_square2))
     # print(numerator)
     # print(denominator)
     # result_value = numerator/denominator

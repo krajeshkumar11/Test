@@ -43,7 +43,7 @@ def word_list(text):
     text = text.lower().split(" ")
     count = 0
     while count < len(text):
-        text[count] = re.sub('[^a-z]','',text[count])
+        text[count] = re.sub('[^a-z]', '', text[count])
         if text[count] in stop_words:
             text.remove(text[count])
             count -= 1
@@ -80,11 +80,11 @@ def build_search_index(docs):
                 while new_count < len(freq_lst):
                     each_list = list(freq_lst[new_count])
                     if each_list[0] == count:
-                        each_list[1] +=  1
+                        each_list[1] =  each_list[1] + 1
                         flag = True
                         freq_lst[new_count] = tuple(each_list)
                         break
-                    new_count += 1
+                    new_count = new_count + 1
                 if flag == False:
                     freq_lst.append(new_lst)
 

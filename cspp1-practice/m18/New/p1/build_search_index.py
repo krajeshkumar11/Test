@@ -68,7 +68,7 @@ def build_search_index(docs):
         each_lst = word_list(docs[count])
         # add or update the words of the doc to the search index
         new_count = 0
-        while new_count in len(each_lst):
+        while new_count < len(each_lst):
             if each_lst[new_count] not in search_index:
                 search_index[each_lst[new_count]] = [(count, 1)]
             else:

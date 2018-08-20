@@ -90,9 +90,6 @@ def build_search_index(docs):
 
                 search_index[each_word] = freq_lst
         count += 1
-
-    # return search index
-    # print(search_index)
     return search_index
 
 # helper function to print the search index

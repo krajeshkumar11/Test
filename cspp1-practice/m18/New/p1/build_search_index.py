@@ -75,10 +75,17 @@ def build_search_index(docs):
                 each_word_freq_list = search_index[each_lst[new_count]]
                 flag = 0
                 freq_tuple = (count, 1)
-                # for freq in each_word_freq_list:
-                #     freq_lst = list(freq)
-                #     if freq_lst[0] == count:
-                #         freq_lst[1] += 1
+
+                freq_index = 0
+                while  freq_index < len(each_word_freq_list):
+                    freq_lst = list(each_word_freq_list[freq_index])
+                    if freq_lst[0] == count:
+                        freq_lst[1] += 1
+                        each_word_freq_list[freq_index] = tuple(freq_lst)
+                        flag = 1
+                        break
+
+                    freq_index += 1
 
                 if flag == 0:
                     each_word_freq_list.append(freq_tuple)

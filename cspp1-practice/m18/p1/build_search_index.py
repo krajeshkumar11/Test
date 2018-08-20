@@ -58,17 +58,23 @@ def build_search_index(docs):
         for each_word in each_doc_list:
         # add or update the words of the doc to the search index
             if each_word not in search_index:
-                freq_lst = [(0, 0),(1, 0),(2, 0),(3, 0),(4, 0),(5, 0)]
+                freq_lst = [(count, 1)]
                 search_index[each_word] = freq_lst
-                update_freq_lst = search_index[each_word]
-                update_tuple = list(update_freq_lst[count])
-                update_freq_lst[count] = tuple(update_tuple)
-                search_index[each_word] = update_freq_lst
             else:
-                update_freq_lst = search_index[each_word]
-                update_tuple = list(update_freq_lst[count])
-                update_freq_lst[count] = tuple(update_tuple)
-                search_index[each_word] = update_freq_lst
+                freq_lst = search_index[each_word]
+                new_lst = [(count, 1)]
+                flag = 0
+                for each in freq_lst:
+                    each_list = list(each)
+                    if each_list[0] == count:
+                        each_list[1] +=  1
+                        flag = True
+                        break
+
+                if flag == 0:
+                    freq_lst.append(new_lst)
+
+                search_index[each_word] = sorted(freq_lst)
 
     # return search index
     search_index

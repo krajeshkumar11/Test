@@ -79,7 +79,7 @@ def build_search_index(docs):
                     each_list = list(each)
                     if each_list[0] == count:
                         each_list[1] +=  1
-                        flag = True
+                        flag = 1
                         break
 
                 if flag == 0:

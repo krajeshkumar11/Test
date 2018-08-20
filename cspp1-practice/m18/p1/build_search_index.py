@@ -80,7 +80,7 @@ def build_search_index(docs):
                 while new_count < len(freq_lst):
                     each_list = list(freq_lst[new_count])
                     if each_list[0] == count:
-                        each_list[1] =  each_list[1] + 1
+                        each_list[1] = each_list[1] + 1
                         flag = True
                         freq_lst[new_count] = tuple(each_list)
                         break

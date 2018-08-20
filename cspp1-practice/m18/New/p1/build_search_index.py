@@ -90,7 +90,7 @@ def build_search_index(docs):
                 if flag == 0:
                     each_word_freq_list.append(freq_tuple)
 
-                search_index[each_lst[new_count]] = each_word_freq_list
+                # search_index[each_lst[new_count]] = each_word_freq_list
 
             new_count += 1
 

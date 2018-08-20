@@ -20,7 +20,7 @@
         .
     }
 '''
-
+import re
 # helper function to load the stop words from a file
 def load_stopwords(filename):
     '''
@@ -39,7 +39,17 @@ def word_list(text):
         Clean up the text by remvoing all the non alphabet characters
         return a list of words
     '''
-    pass
+    stop_words = load_stopwords('stopwords.txt')
+    text = text.lower().split(" ")
+    count = 0
+    while count < len(text):
+        text[count] = re.sub('[^a-z]','',text[count])
+        if text[count] in stop_words:
+            text.remove(text[count])
+            count -= 1
+        count += 1
+    # print(text)
+    return text
 
 def build_search_index(docs):
     '''
@@ -47,6 +57,7 @@ def build_search_index(docs):
     '''
 
     # initialize a search index (an empty dictionary)
+
     search_index = {}
     # iterate through all the docs
     # keep track of doc_id which is the list index corresponding the document
@@ -54,7 +65,7 @@ def build_search_index(docs):
     count = 0
     while count < len(docs):
         # clean up doc and tokenize to words list
-        each_doc_list = docs[count].split(' ')
+        each_doc_list = word_list(docs[count])
         for each_word in each_doc_list:
         # add or update the words of the doc to the search index
             if each_word not in search_index:
@@ -74,10 +85,12 @@ def build_search_index(docs):
                 if flag == 0:
                     freq_lst.append(new_lst)
 
-                search_index[each_word] = sorted(freq_lst)
+                search_index[each_word] = freq_lst
+        count += 1
 
     # return search index
-    search_index
+    # print(search_index)
+    return search_index
 
 # helper function to print the search index
 # use this to verify how the search index looks
@@ -85,7 +98,6 @@ def print_search_index(index):
     '''
         print the search index
     '''
-    print(index, "HI")
     keys = sorted(index.keys())
     for key in keys:
         print(key, " - ", index[key])

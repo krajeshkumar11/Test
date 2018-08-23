@@ -1,3 +1,5 @@
+from numpy import *
+
 def mult_matrix(m1, m2):
     '''
         check if the matrix1 columns = matrix2 rows
@@ -18,9 +20,13 @@ def mult_matrix(m1, m2):
             nm2 = len(each)
 
     if nm1 == mm2:
-        result_matrix = [0] * mm1
-        for i in range(mm2):
-            result_matrix[i] = [0] * mm2
+        result_matrix = range(nm1 * mm2)
+
+        result_matrix = reshape(result_matrix,(nm1, mm2))
+
+        # result_matrix = [0] * mm1
+        # for i in range(mm2):
+        #     result_matrix[i] = [0] * mm2
         for i in range(mm1):
             for j in range(nm2):
                 for k in range(mm2):

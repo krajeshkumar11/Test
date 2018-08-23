@@ -89,13 +89,16 @@ def read_matrix():
         for j in range(new_matrix_size[1]):
             new_matrix[i][j] = row_data[j]
 
-    if not flag :
+    if not flag:
         return False
     else:
         return new_matrix
 
 
 def main():
+    """
+        read inputs from user and perform matrix addition and multiplication for given matrices
+    """
     # read matrix 1
     matrix_1 = read_matrix()
     # read matrix 2

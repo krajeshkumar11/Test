@@ -78,21 +78,21 @@ def read_matrix():
         return matrix
     except:
         print('Error: Invalid input for the matrix')
+        return False
 
 def main():
     # read matrix 1
-    try:
-        matrix_1 = read_matrix()
-        # print(matrix_1)
-        # read matrix 2
-        matrix_2 = read_matrix()
+    matrix_1 = read_matrix()
+    # print(matrix_1)
+    # read matrix 2
+    matrix_2 = read_matrix()
+
+    if matrix_1 != False or matrix_2 != False:
         # print(matrix_2)
         # add matrix 1 and matrix 2
         print(add_matrix(matrix_1, matrix_2))
         # multiply matrix 1 and matrix 2
         print(mult_matrix(matrix_1, matrix_2))
-    except:
-        print()
 
 if __name__ == '__main__':
     main()

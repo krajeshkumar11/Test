@@ -1,4 +1,4 @@
-from numpy import range, reshape
+import numpy
 
 def mult_matrix(m1, m2):
     '''

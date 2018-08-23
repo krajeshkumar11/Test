@@ -87,7 +87,7 @@ def main():
     # read matrix 2
     matrix_2 = read_matrix()
 
-    if matrix_1 != False or matrix_2 != False:
+    if matrix_1 != False and matrix_2 != False:
         # print(matrix_2)
         # add matrix 1 and matrix 2
         print(add_matrix(matrix_1, matrix_2))

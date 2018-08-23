@@ -91,7 +91,7 @@ def main():
         print(add_matrix(matrix_1, matrix_2))
         # multiply matrix 1 and matrix 2
         print(mult_matrix(matrix_1, matrix_2))
-
+    except:
 
 
 if __name__ == '__main__':

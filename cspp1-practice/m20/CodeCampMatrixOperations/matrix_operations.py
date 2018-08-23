@@ -6,25 +6,25 @@ def mult_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
-    mm1 = len(m1)
-    nm1 = len(m1[0])
+    m_m1 = len(m1)
+    n_m1 = len(m1[0])
     for each in m1:
-        if nm1 < len(each):
-            nm1 = len(each)
-    mm2 = len(m2)
-    nm2 = len(m2[0])
+        if n_m1 < len(each):
+            n_m1 = len(each)
+    m_m2 = len(m2)
+    n_m2 = len(m2[0])
     for each in m2:
-        if nm2 < len(each):
-            nm2 = len(each)
+        if n_m2 < len(each):
+            n_m2 = len(each)
 
-    if nm1 == mm2:
-        result_matrix = [0] * mm1
-        for i in range(nm2):
-            result_matrix[i] = [0] * nm2
+    if n_m1 == m_m2:
+        result_matrix = [0] * m_m1
+        for i in range(n_m2):
+            result_matrix[i] = [0] * n_m2
 
-        for i in range(mm1):
-            for j in range(nm2):
-                for k in range(mm2):
+        for i in range(m_m1):
+            for j in range(n_m2):
+                for k in range(m_m2):
                     result_matrix[i][j] += m1[i][k] * m2[k][j]
 
         return result_matrix
@@ -39,23 +39,23 @@ def add_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    mm1 = len(m1)
-    nm1 = len(m1[0])
+    m_m1 = len(m1)
+    n_m1 = len(m1[0])
     for each in m1:
-        if nm1 < len(each):
-            nm1 = len(each)
-    mm2 = len(m2)
-    nm2 = len(m2[0])
+        if n_m1 < len(each):
+            n_m1 = len(each)
+    m_m2 = len(m2)
+    n_m2 = len(m2[0])
     for each in m2:
-        if nm2 < len(each):
-            nm2 = len(each)
+        if n_m2 < len(each):
+            n_m2 = len(each)
 
-    if mm1 == mm2 and nm1 ==nm2:
-        result_matrix = [0] * mm1
-        for i in range(mm1):
-            result_matrix[i] = [0] * nm1
-        for i in range(mm1):
-            for j in range(nm1):
+    if m_m1 == m_m2 and n_m1 ==n_m2:
+        result_matrix = [0] * m_m1
+        for i in range(m_m1):
+            result_matrix[i] = [0] * n_m1
+        for i in range(m_m1):
+            for j in range(n_m1):
                 result_matrix[i][j] = m1[i][j] + m2[i][j]
         return result_matrix
     else:

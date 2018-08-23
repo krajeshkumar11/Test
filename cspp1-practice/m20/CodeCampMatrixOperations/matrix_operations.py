@@ -18,9 +18,10 @@ def mult_matrix(m1, m2):
             nm2 = len(each)
 
     if nm1 == mm2:
-        result_matrix = [0] * mm1
+        result_matrix = [0] * nm1
         for i in range(mm2):
             result_matrix[i] = [0] * mm2
+
         for i in range(mm1):
             for j in range(nm2):
                 for k in range(mm2):

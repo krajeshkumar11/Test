@@ -37,6 +37,7 @@ def add_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
+    mm1 = len(m1)
     nm1 = len(m1[0])
     for each in m1:
         if nm1 < len(each):

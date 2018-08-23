@@ -1,5 +1,5 @@
 """
-    Perform Matrix addition and multiplication.
+    Perform Matrix addition and multiplication
 """
 
 def mult_matrix(matrix_1, matrix_2):
@@ -21,11 +21,10 @@ def mult_matrix(matrix_1, matrix_2):
         if n_matrix_2 < len(each):
             n_matrix_2 = len(each)
 
-    result_matrix = [0] * m_matrix_1
-    for i in range(n_matrix_2):
-        result_matrix[i] = [0] * n_matrix_2
-
     if n_matrix_1 == m_matrix_2:
+        result_matrix = [0] * m_matrix_1
+        for i in range(n_matrix_2):
+            result_matrix[i] = [0] * n_matrix_2
 
         for i in range(m_matrix_1):
             for j in range(n_matrix_2):
@@ -55,11 +54,10 @@ def add_matrix(matrix_1, matrix_2):
         if n_matrix_2 < len(each):
             n_matrix_2 = len(each)
 
-    result_matrix = [0] * m_matrix_1
-    for i in range(m_matrix_1):
-        result_matrix[i] = [0] * n_matrix_1
-
     if m_matrix_1 == m_matrix_2 and n_matrix_1 == n_matrix_2:
+        result_matrix = [0] * m_matrix_1
+        for i in range(m_matrix_1):
+            result_matrix[i] = [0] * n_matrix_1
         for i in range(m_matrix_1):
             for j in range(n_matrix_1):
                 result_matrix[i][j] = matrix_1[i][j] + matrix_2[i][j]

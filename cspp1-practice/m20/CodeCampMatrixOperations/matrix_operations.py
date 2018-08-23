@@ -16,10 +16,11 @@ def mult_matrix(m1, m2):
     for each in m2:
         if nm2 < len(each):
             nm2 = len(each)
-    result_matrix = [0] * mm1
-    for i in range(mm2):
-        result_matrix[i] = [0] * mm2
+
     if nm1 == mm2:
+        result_matrix = [0] * mm1
+        for i in range(mm2):
+            result_matrix[i] = [0] * mm2
         for i in range(mm1):
             for j in range(nm2):
                 for k in range(mm2):
@@ -47,10 +48,11 @@ def add_matrix(m1, m2):
     for each in m2:
         if nm2 < len(each):
             nm2 = len(each)
-    result_matrix = [0] * mm1
-    for i in range(mm1):
-        result_matrix[i] = [0] * nm1
+
     if mm1 == mm2 and nm1 ==nm2:
+        result_matrix = [0] * mm1
+        for i in range(mm1):
+            result_matrix[i] = [0] * nm1
         for i in range(mm1):
             for j in range(nm1):
                 result_matrix[i][j] = m1[i][j] + m2[i][j]

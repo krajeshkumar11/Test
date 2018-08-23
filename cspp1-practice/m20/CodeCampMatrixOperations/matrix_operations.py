@@ -1,4 +1,4 @@
-def mult_matrix(m1, m2):
+def mult_matrix(matrix_1, matrix_2):
     '''
         check if the matrix1 columns = matrix2 rows
         mult the matrices and return the result matrix
@@ -6,32 +6,32 @@ def mult_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
-    m_m1 = len(m1)
-    n_m1 = len(m1[0])
-    for each in m1:
-        if n_m1 < len(each):
-            n_m1 = len(each)
-    m_m2 = len(m2)
-    n_m2 = len(m2[0])
-    for each in m2:
-        if n_m2 < len(each):
-            n_m2 = len(each)
+    m_matrix_1 = len(matrix_1)
+    n_matrix_1 = len(matrix_1[0])
+    for each in matrix_1:
+        if n_matrix_1 < len(each):
+            n_matrix_1 = len(each)
+    m_matrix_2 = len(matrix_2)
+    n_matrix_2 = len(matrix_2[0])
+    for each in matrix_2:
+        if n_matrix_2 < len(each):
+            n_matrix_2 = len(each)
 
-    if n_m1 == m_m2:
-        result_matrix = [0] * m_m1
-        for i in range(n_m2):
-            result_matrix[i] = [0] * n_m2
+    if n_matrix_1 == m_matrix_2:
+        result_matrix = [0] * m_matrix_1
+        for i in range(n_matrix_2):
+            result_matrix[i] = [0] * n_matrix_2
 
-        for i in range(m_m1):
-            for j in range(n_m2):
-                for k in range(m_m2):
-                    result_matrix[i][j] += m1[i][k] * m2[k][j]
+        for i in range(m_matrix_1):
+            for j in range(n_matrix_2):
+                for k in range(m_matrix_2):
+                    result_matrix[i][j] += matrix_1[i][k] * matrix_2[k][j]
 
         return result_matrix
     else:
         print('Error: Matrix shapes invalid for mult')
 
-def add_matrix(m1, m2):
+def add_matrix(matrix_1, matrix_2):
     '''
         check if the matrix shapes are similar
         add the matrices and return the result matrix
@@ -39,24 +39,24 @@ def add_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    m_m1 = len(m1)
-    n_m1 = len(m1[0])
-    for each in m1:
-        if n_m1 < len(each):
-            n_m1 = len(each)
-    m_m2 = len(m2)
-    n_m2 = len(m2[0])
-    for each in m2:
-        if n_m2 < len(each):
-            n_m2 = len(each)
+    m_matrix_1 = len(matrix_1)
+    n_matrix_1 = len(matrix_1[0])
+    for each in matrix_1:
+        if n_matrix_1 < len(each):
+            n_matrix_1 = len(each)
+    m_matrix_2 = len(matrix_2)
+    n_matrix_2 = len(matrix_2[0])
+    for each in matrix_2:
+        if n_matrix_2 < len(each):
+            n_matrix_2 = len(each)
 
-    if m_m1 == m_m2 and n_m1 ==n_m2:
-        result_matrix = [0] * m_m1
-        for i in range(m_m1):
-            result_matrix[i] = [0] * n_m1
-        for i in range(m_m1):
-            for j in range(n_m1):
-                result_matrix[i][j] = m1[i][j] + m2[i][j]
+    if m_matrix_1 == m_matrix_2 and n_matrix_1 == n_matrix_2:
+        result_matrix = [0] * m_matrix_1
+        for i in range(m_matrix_1):
+            result_matrix[i] = [0] * n_matrix_1
+        for i in range(m_matrix_1):
+            for j in range(n_matrix_1):
+                result_matrix[i][j] = matrix_1[i][j] + matrix_2[i][j]
         return result_matrix
     else:
         print('Error: Matrix shapes invalid for addition')
@@ -72,13 +72,13 @@ def read_matrix():
     new_matrix_size = input().split(',')
     new_matrix_size = list(map(int, new_matrix_size))
 
-    m = new_matrix_size[0]
-    n = new_matrix_size[1]
+    rows_m = new_matrix_size[0]
+    columns_n = new_matrix_size[1]
 
-    new_matrix = [0] * m
+    new_matrix = [0] * rows_m
 
-    for i in range(m):
-        new_matrix[i] = [0] * n
+    for i in range(rows_m):
+        new_matrix[i] = [0] * columns_n
     flag = True
     for i in range(new_matrix_size[0]):
         row_data = input().split(' ')

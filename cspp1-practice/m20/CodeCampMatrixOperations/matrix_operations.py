@@ -16,9 +16,9 @@ def mult_matrix(m1, m2):
     for each in m2:
         if nm2 < len(each):
             nm2 = len(each)
-    result_matrix = [0] * nm1
-    for i in range(nm1):
-        result_matrix[i] = [0] * mm1
+    result_matrix = [0] * mm1
+    for i in range(mm2):
+        result_matrix[i] = [0] * mm2
     if nm1 == mm2:
         for i in range(mm1):
             for j in range(nm2):
@@ -27,7 +27,7 @@ def mult_matrix(m1, m2):
 
         return result_matrix
     else:
-        return 'Error: Matrix shapes invalid for addition'
+        print('Error: Matrix shapes invalid for mult')
 
 def add_matrix(m1, m2):
     '''
@@ -47,17 +47,16 @@ def add_matrix(m1, m2):
     for each in m2:
         if nm2 < len(each):
             nm2 = len(each)
-    result_matrix = [0] * nm1
-    for i in range(nm1):
-        result_matrix[i] = [0] * mm1
-
+    result_matrix = [0] * mm1
+    for i in range(mm1):
+        result_matrix[i] = [0] * nm1
     if mm1 == mm2 and nm1 ==nm2:
         for i in range(mm1):
             for j in range(nm1):
                 result_matrix[i][j] = m1[i][j] + m2[i][j]
         return result_matrix
     else:
-        return 'Error: Matrix shapes invalid for addition'
+        print('Error: Matrix shapes invalid for addition')
 
 def read_matrix():
     '''
@@ -72,29 +71,40 @@ def read_matrix():
 
     m = new_matrix_size[0]
     n = new_matrix_size[1]
-    new_matrix = [0] * n
 
-    for i in range(n):
-        new_matrix[i] = [0] * m
+    new_matrix = [0] * m
 
+    for i in range(m):
+        new_matrix[i] = [0] * n
+    flag = True
     for i in range(new_matrix_size[0]):
         row_data = input().split(' ')
         row_data = list(map(int, row_data))
+        if len(row_data) != new_matrix_size[1]:
+            flag = False
+            break
         for j in range(new_matrix_size[1]):
             new_matrix[i][j] = row_data[j]
-    return new_matrix
+
+    if not flag :
+        return False
+    else:
+        return new_matrix
+
 
 def main():
     # read matrix 1
     matrix_1 = read_matrix()
     # read matrix 2
     matrix_2 = read_matrix()
-    # print(matrix_1)
-    # print(matrix_2)
-    # add matrix 1 and matrix 2
-    print(add_matrix(matrix_1, matrix_2))
-    # multiply matrix 1 and matrix 2
-    print(mult_matrix(matrix_1, matrix_2))
+
+    if matrix_1 == False or matrix_2 == False:
+        print('Error: Invalid input for the matrix')
+    else:
+        # add matrix 1 and matrix 2
+        print(add_matrix(matrix_1, matrix_2))
+        # multiply matrix 1 and matrix 2
+        print(mult_matrix(matrix_1, matrix_2))
 
 if __name__ == '__main__':
     main()

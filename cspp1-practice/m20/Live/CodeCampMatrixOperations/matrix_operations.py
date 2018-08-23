@@ -6,28 +6,24 @@ def mult_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
-    try:
-        # print('MULTIPLICATION: ', m1, m2)
-        size_m1 = len(m1)
-        size_n1 = len(m1[0])
-        size_m2 = len(m2)
-        size_n2 = len(m2[0])
+    # print('MULTIPLICATION: ', m1, m2)
+    size_m1 = len(m1)
+    size_n1 = len(m1[0])
+    size_m2 = len(m2)
+    size_n2 = len(m2[0])
         #m/n : m1/n2
-        result = [0] * size_m1
+    result = [0] * size_m1
+    for i in range(size_m1):
+        result[i] = [0] * size_n2
+
+    if size_n1 == size_m2:
         for i in range(size_m1):
-            result[i] = [0] * size_n2
+            for j in range(size_n2):
+                for k in range(size_m2):
+                    result[i][j] += m1[i][k] * m2[k][j]
 
-        if size_n1 == size_m2:
-            for i in range(size_m1):
-                for j in range(size_n2):
-                    for k in range(size_m2):
-                        result[i][j] += m1[i][k] * m2[k][j]
-
-            return result
-        else:
-            print('Error: Matrix shapes invalid for mult')
-
-    except:
+        return result
+    else:
         print('Error: Matrix shapes invalid for mult')
 
 def add_matrix(m1, m2):

@@ -8,8 +8,14 @@ def mult_matrix(m1, m2):
     '''
     mm1 = len(m1)
     nm1 = len(m1[0])
+    for each in m1:
+        if nm1 < len(each):
+            nm1 = len(each)
     mm2 = len(m2)
     nm2 = len(m2[0])
+    for each in m2:
+        if nm2 < len(each):
+            nm2 = len(each)
     result_matrix = [0] * nm1
     for i in range(nm1):
         result_matrix[i] = [0] * mm1
@@ -31,10 +37,15 @@ def add_matrix(m1, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    mm1 = len(m1)
     nm1 = len(m1[0])
+    for each in m1:
+        if nm1 < len(each):
+            nm1 = len(each)
     mm2 = len(m2)
     nm2 = len(m2[0])
+    for each in m2:
+        if nm2 < len(each):
+            nm2 = len(each)
     result_matrix = [0] * nm1
     for i in range(nm1):
         result_matrix[i] = [0] * mm1

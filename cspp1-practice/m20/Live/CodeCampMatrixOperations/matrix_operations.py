@@ -81,15 +81,18 @@ def read_matrix():
 
 def main():
     # read matrix 1
-    matrix_1 = read_matrix()
-    # print(matrix_1)
-    # read matrix 2
-    matrix_2 = read_matrix()
-    # print(matrix_2)
-    # add matrix 1 and matrix 2
-    print(add_matrix(matrix_1, matrix_2))
-    # multiply matrix 1 and matrix 2
-    print(mult_matrix(matrix_1, matrix_2))
+    try:
+        matrix_1 = read_matrix()
+        # print(matrix_1)
+        # read matrix 2
+        matrix_2 = read_matrix()
+        # print(matrix_2)
+        # add matrix 1 and matrix 2
+        print(add_matrix(matrix_1, matrix_2))
+        # multiply matrix 1 and matrix 2
+        print(mult_matrix(matrix_1, matrix_2))
+
+
 
 if __name__ == '__main__':
     main()

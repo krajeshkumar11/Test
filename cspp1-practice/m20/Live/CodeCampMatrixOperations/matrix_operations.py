@@ -57,26 +57,27 @@ def read_matrix():
         print an error message and return None
         error message should be "Error: Invalid input for the matrix"
     '''
-    dim_str = input().split(',')
-    global m
-    m = int(dim_str[0])
-    global n
-    n = int(dim_str[1])
+    try:
+        dim_str = input().split(',')
+        global m
+        m = int(dim_str[0])
+        global n
+        n = int(dim_str[1])
 
-    matrix = [0] * m
-    for each in range(m):
-        matrix[each] = [0] * n
+        matrix = [0] * m
+        for each in range(m):
+            matrix[each] = [0] * n
 
-    for i in range(m):
-        row_str = input().split(' ')
-        # print(row_str)
-        row_str = list(map(int, row_str))
-        # print(row_str)
-        for j in range(n):
-            matrix[i][j] = row_str[j]
-
-    return matrix
-
+        for i in range(m):
+            row_str = input().split(' ')
+            # print(row_str)
+            row_str = list(map(int, row_str))
+            # print(row_str)
+            for j in range(n):
+                matrix[i][j] = row_str[j]
+        return matrix
+    except:
+        print('Error: Invalid input for the matrix')
 
 def main():
     # read matrix 1

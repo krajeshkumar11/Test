@@ -116,7 +116,7 @@ def game_validation(game_data):
                 count_x += 1
             elif each_column == 'o':
                 count_o += 1
-    if abs(count_x - count_o) <= 1:
+    if abs(count_x - count_o) == 1:
         return True
     else:
         return False

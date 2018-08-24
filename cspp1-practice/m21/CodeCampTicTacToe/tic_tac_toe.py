@@ -145,10 +145,10 @@ def main():
             print('draw')
             return
         else:
-            print('invalid input')
+            print('invalid game')
             return
     else:
-        print('invalid game')
+        print('invalid input')
         return
 
 if __name__ == '__main__':

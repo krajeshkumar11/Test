@@ -65,9 +65,7 @@ def hor_ver_winner(game_data, side):
         if count_o == 3:
             player_2 = True
 
-    if player_1 and player_2:
-        return (True, 'draw')
-    elif player_1:
+    if player_1:
         return (True, 'x')
     elif player_2:
         return (True, 'o')
@@ -91,6 +89,8 @@ def game_winner(game_data):
     result_data = list(lr_diagonal(game_data, 'RL'))
     if result_data[0] == True:
         return result_data[1]
+    # If above conditions are not satisfied its a DRAW
+    return 'draw'
 
 def main():
     num_rows = 3

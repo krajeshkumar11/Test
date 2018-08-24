@@ -124,8 +124,8 @@ def main():
         user_input = input().split(' ')
         matrix.append(user_input)
 
-    if game_validation(matrix):
-        if data_validation(matrix):
+    if data_validation(matrix):
+        if game_validation(matrix):
             result_list = list(hz_vt_winner(matrix, 'HZ'))
             if result_list[0]:
                 print(result_list[1])

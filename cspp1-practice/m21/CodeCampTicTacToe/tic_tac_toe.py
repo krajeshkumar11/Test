@@ -55,7 +55,7 @@ def lr_rl_diagonal(matrix, pattern):
         # print('o')
         return (True, 'o')
     else:
-        return (True, 'draw')
+        return (False, 'draw')
 
 
 def hz_vt_winner(matrix, patter):
@@ -90,7 +90,7 @@ def hz_vt_winner(matrix, patter):
         return (True, 'o')
     else:
         # print('draw')
-        return (True, 'draw')
+        return (False, 'draw')
 
 
 def main():
@@ -118,6 +118,8 @@ def main():
     if result_list[0]:
         print(result_list[1])
         return
+    print('draw')
+    return
 
 if __name__ == '__main__':
     main()

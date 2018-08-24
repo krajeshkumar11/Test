@@ -87,7 +87,7 @@ def game_winner(game_data):
     # If above conditions are not satisfied its a DRAW
     return 'draw'
 
-def data_validation(game_data):
+def game_validation(game_data):
     count_x = 0
     count_o = 0
 
@@ -103,6 +103,14 @@ def data_validation(game_data):
     else:
         return False
 
+def data_validation(game_data):
+    for each_row in game_data:
+        for each_column in each_row:
+            if each_column != 'x' and each_column == 'o' and each_column == '.':
+                return False
+
+    return True
+
 def main():
     num_rows = 3
     game_data = ['0'] * num_rows
@@ -115,9 +123,12 @@ def main():
             game_data[i][j] = rows[j]
     # print(game_data)
     if data_validation(game_data):
-        print(game_winner(game_data))
+        if game_validation(game_data):
+            print(game_winner(game_data))
+        else:
+            print('invalid game')
     else:
-        print('invalid game')
+        print('invalid input')
 
 if __name__ == '__main__':
     main()

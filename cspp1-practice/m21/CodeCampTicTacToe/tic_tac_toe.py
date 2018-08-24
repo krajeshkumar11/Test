@@ -1,6 +1,9 @@
 
 
 def lr_rl_diagonal(game_data, side):
+    """
+        Function to check winner along diagonal
+    """
     player_1 = False
     player_2 = False
     # print(game_data)
@@ -38,6 +41,9 @@ def lr_rl_diagonal(game_data, side):
         return (False, '')
 
 def hor_ver_winner(game_data, side):
+    """
+        Function to check winner along rows or columns
+    """
     player_1 = False
     player_2 = False
     # print(game_data)
@@ -68,29 +74,35 @@ def hor_ver_winner(game_data, side):
         return (False, '')
 
 def game_winner(game_data):
+    """
+        Function to find winner and return him
+    """
     # Horizontal Check
     result_data = list(hor_ver_winner(game_data, 'HZ'))
-    if result_data[0] == True:
+    if result_data[0]:
         return result_data[1]
     # Vertical Check
     result_data = list(hor_ver_winner(game_data, 'VT'))
-    if result_data[0] == True:
+    if result_data[0]:
         return result_data[1]
     # Diagonal Left to Right
     result_data = list(lr_rl_diagonal(game_data, 'LR'))
-    if result_data[0] == True:
+    if result_data[0]:
         return result_data[1]
     # Diagonal Right to Left
     result_data = list(lr_rl_diagonal(game_data, 'RL'))
-    if result_data[0] == True:
+    if result_data[0]:
         return result_data[1]
     # If above conditions are not satisfied its a DRAW
     return 'draw'
 
 def game_validation(game_data):
+    """
+        Function to check if game is valid or not based on given data.
+        Differance of turns each player played should not be more than 1
+    """
     count_x = 0
     count_o = 0
-
     for each_row in game_data:
         for each_column in each_row:
             if each_column == 'x':
@@ -103,6 +115,10 @@ def game_validation(game_data):
         return False
 
 def data_validation(game_data):
+    """
+        Function to check if data is valid or not based on
+        Valid Data is 'x' or 'o' or '.', if given data has other than valid data then game is invalid.
+    """
     valid_data = ['x', 'o', '.']
     for each_row in game_data:
         for each_column in each_row:
@@ -111,16 +127,19 @@ def data_validation(game_data):
     return True
 
 def main():
+    """
+        Reading input from user and playing the game
+    """
     num_rows = 3
     game_data = ['0'] * num_rows
     for i in range(num_rows):
         game_data[i] = ['0'] * num_rows
-    # print(game_data)
+
     for i in range(num_rows):
         rows = input().split(' ')
         for j in range(num_rows):
             game_data[i][j] = rows[j]
-    # print(game_data)
+
     if game_validation(game_data):
         print(game_winner(game_data))
     else:

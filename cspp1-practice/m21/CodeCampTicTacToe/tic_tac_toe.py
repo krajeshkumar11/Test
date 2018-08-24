@@ -103,9 +103,10 @@ def game_validation(game_data):
         return False
 
 def data_validation(game_data):
+    valid_data = ['x', 'o', '.']
     for each_row in game_data:
         for each_column in each_row:
-            if each_column != 'x' and each_column == 'o' and each_column == '.':
+            if each_column not in valid_data:
                 return False
     return True
 
@@ -121,12 +122,12 @@ def main():
             game_data[i][j] = rows[j]
     # print(game_data)
     if game_validation(game_data):
-        if data_validation(game_data):
-            print(game_winner(game_data))
-        else:
-            print('invalid input')
+        print(game_winner(game_data))
     else:
-        print('invalid game')
+        if not data_validation(game_data):
+            print('invalid input')
+        else:
+            print('invalid game')
 
 if __name__ == '__main__':
     main()

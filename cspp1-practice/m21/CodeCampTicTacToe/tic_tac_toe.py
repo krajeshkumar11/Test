@@ -1,3 +1,10 @@
+"""
+    Program to play Tic Tac Toe game.
+"""
+import enum
+
+class number_rows(enum.Enum):
+    rows : 3
 
 
 def lr_rl_diagonal(game_data, side):
@@ -37,8 +44,7 @@ def lr_rl_diagonal(game_data, side):
         return (True, 'x')
     elif player_2:
         return (True, 'o')
-    else:
-        return (False, '')
+    return (False, '')
 
 def hor_ver_winner(game_data, side):
     """
@@ -70,8 +76,7 @@ def hor_ver_winner(game_data, side):
         return (True, 'x')
     elif player_2:
         return (True, 'o')
-    else:
-        return (False, '')
+    return (False, '')
 
 def game_winner(game_data):
     """
@@ -109,10 +114,9 @@ def game_validation(game_data):
                 count_x += 1
             elif each_column == 'o':
                 count_o += 1
-    if count_x + 1 == count_o or count_x == count_o + 1:
+    if abs(count_x, count_o) <= 1:
         return True
-    else:
-        return False
+    return False
 
 def data_validation(game_data):
     """

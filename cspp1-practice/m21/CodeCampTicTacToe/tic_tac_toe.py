@@ -50,10 +50,13 @@ def lr_rl_diagonal(matrix, pattern):
 
     if count_x == 3:
         print('x')
+        return True
     elif count_o == 3:
         print('o')
+        return True
     else:
         print('draw')
+        return True
 
 def hz_vt_winner(matrix, patter):
     # print(matrix)

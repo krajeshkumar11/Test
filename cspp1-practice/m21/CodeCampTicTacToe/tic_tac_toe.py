@@ -92,6 +92,13 @@ def hz_vt_winner(matrix, patter):
         # print('draw')
         return (False, 'draw')
 
+def data_validation(matrix):
+    valid_data = ['x', 'o', '.']
+    for i in matrix:
+        for j in i:
+            if j not in valid_data:
+                return False
+    return True
 
 def main():
     global num_rows
@@ -101,25 +108,28 @@ def main():
         user_input = input().split(' ')
         matrix.append(user_input)
 
-
-    result_list = list(hz_vt_winner(matrix, 'HZ'))
-    if result_list[0]:
-        print(result_list[1])
+    if data_validation(matrix):
+        result_list = list(hz_vt_winner(matrix, 'HZ'))
+        if result_list[0]:
+            print(result_list[1])
+            return
+        result_list = list(hz_vt_winner(matrix, 'VT'))
+        if result_list[0]:
+            print(result_list[1])
+            return
+        result_list = list(lr_rl_diagonal(matrix, 'LR'))
+        if result_list[0]:
+            print(result_list[1])
+            return
+        result_list = list(lr_rl_diagonal(matrix, 'RL'))
+        if result_list[0]:
+            print(result_list[1])
+            return
+        print('draw')
         return
-    result_list = list(hz_vt_winner(matrix, 'VT'))
-    if result_list[0]:
-        print(result_list[1])
+    else:
+        print('invalid input')
         return
-    result_list = list(lr_rl_diagonal(matrix, 'LR'))
-    if result_list[0]:
-        print(result_list[1])
-        return
-    result_list = list(lr_rl_diagonal(matrix, 'RL'))
-    if result_list[0]:
-        print(result_list[1])
-        return
-    print('draw')
-    return
 
 if __name__ == '__main__':
     main()

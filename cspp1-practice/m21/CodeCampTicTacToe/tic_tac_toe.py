@@ -54,9 +54,6 @@ def lr_rl_diagonal(matrix, pattern):
     elif count_o == 3:
         print('o')
         return True
-    else:
-        print('draw')
-        return True
 
 def hz_vt_winner(matrix, patter):
     # print(matrix)
@@ -80,9 +77,6 @@ def hz_vt_winner(matrix, patter):
             return True
         elif count_o == 3:
             print('o')
-            return True
-        else:
-            print('draw')
             return True
 
 

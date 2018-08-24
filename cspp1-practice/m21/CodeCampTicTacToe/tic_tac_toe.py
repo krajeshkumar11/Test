@@ -44,7 +44,8 @@ def lr_rl_diagonal(game_data, side):
         return (True, 'x')
     elif player_2:
         return (True, 'o')
-    return (False, '')
+    else:
+        return (False, '')
 
 def hor_ver_winner(game_data, side):
     """
@@ -76,7 +77,8 @@ def hor_ver_winner(game_data, side):
         return (True, 'x')
     elif player_2:
         return (True, 'o')
-    return (False, '')
+    else:
+        return (False, '')
 
 def game_winner(game_data):
     """
@@ -114,10 +116,10 @@ def game_validation(game_data):
                 count_x += 1
             elif each_column == 'o':
                 count_o += 1
-
-    if (abs(count_x - count_o) <= 1):
+    if abs(count_x - count_o) <= 1:
         return True
-    return False
+    else:
+        return False
 
 def data_validation(game_data):
     """

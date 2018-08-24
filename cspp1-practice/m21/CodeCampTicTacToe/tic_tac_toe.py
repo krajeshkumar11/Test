@@ -120,8 +120,8 @@ def main():
         for j in range(num_rows):
             game_data[i][j] = rows[j]
     # print(game_data)
-    if data_validation(game_data):
-        if game_validation(game_data):
+    if game_validation(game_data):
+        if data_validation(game_data):
             print(game_winner(game_data))
         else:
             print('invalid input')

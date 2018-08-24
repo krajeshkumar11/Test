@@ -97,8 +97,7 @@ def game_validation(game_data):
                 count_x += 1
             elif each_column == 'o':
                 count_o += 1
-
-    if count_x == count_o:
+    if count_x + 1 == count_o or count_x == count_o + 1:
         return True
     else:
         return False

@@ -103,7 +103,7 @@ def game_validation(matrix):
             elif j == 'o':
                 count_o += 1
 
-    if abs(count_x - count_o) <= 1:
+    if abs(count_x - count_o) == 1:
         return True
     return False
 

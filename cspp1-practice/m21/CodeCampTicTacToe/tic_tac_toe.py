@@ -92,6 +92,22 @@ def hz_vt_winner(matrix, patter):
         # print('draw')
         return (False, 'draw')
 
+def game_validation(matrix):
+    count_x = 0
+    count_o = 0
+
+    for i in matrix:
+        for j in i:
+            if j == 'x':
+                count_x += 1
+            elif j == 'o':
+                count_o += 1
+
+    if abs(count_x - count_o) <= 1:
+        return True
+    return False
+
+
 def data_validation(matrix):
     valid_data = ['x', 'o', '.']
     for i in matrix:
@@ -108,27 +124,31 @@ def main():
         user_input = input().split(' ')
         matrix.append(user_input)
 
-    if data_validation(matrix):
-        result_list = list(hz_vt_winner(matrix, 'HZ'))
-        if result_list[0]:
-            print(result_list[1])
+    if game_validation(matrix):
+        if data_validation(matrix):
+            result_list = list(hz_vt_winner(matrix, 'HZ'))
+            if result_list[0]:
+                print(result_list[1])
+                return
+            result_list = list(hz_vt_winner(matrix, 'VT'))
+            if result_list[0]:
+                print(result_list[1])
+                return
+            result_list = list(lr_rl_diagonal(matrix, 'LR'))
+            if result_list[0]:
+                print(result_list[1])
+                return
+            result_list = list(lr_rl_diagonal(matrix, 'RL'))
+            if result_list[0]:
+                print(result_list[1])
+                return
+            print('draw')
             return
-        result_list = list(hz_vt_winner(matrix, 'VT'))
-        if result_list[0]:
-            print(result_list[1])
+        else:
+            print('invalid input')
             return
-        result_list = list(lr_rl_diagonal(matrix, 'LR'))
-        if result_list[0]:
-            print(result_list[1])
-            return
-        result_list = list(lr_rl_diagonal(matrix, 'RL'))
-        if result_list[0]:
-            print(result_list[1])
-            return
-        print('draw')
-        return
     else:
-        print('invalid input')
+        print('invalid game')
         return
 
 if __name__ == '__main__':

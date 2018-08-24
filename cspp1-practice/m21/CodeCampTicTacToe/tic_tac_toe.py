@@ -1,11 +1,6 @@
 
-def game_validate():
-    pass
 
-def input_validate():
-    pass
-
-def lr_diagonal(game_data, side):
+def lr_rl_diagonal(game_data, side):
     player_1 = False
     player_2 = False
     # print(game_data)
@@ -82,15 +77,33 @@ def game_winner(game_data):
     if result_data[0] == True:
         return result_data[1]
     # Diagonal Left to Right
-    result_data = list(lr_diagonal(game_data, 'LR'))
+    result_data = list(lr_rl_diagonal(game_data, 'LR'))
     if result_data[0] == True:
         return result_data[1]
     # Diagonal Right to Left
-    result_data = list(lr_diagonal(game_data, 'RL'))
+    result_data = list(lr_rl_diagonal(game_data, 'RL'))
     if result_data[0] == True:
         return result_data[1]
     # If above conditions are not satisfied its a DRAW
     return 'draw'
+
+def data_validation(game_data):
+    count_x = 0
+    count_o = 0
+
+    for each_row in game_data:
+        for each_column in each_row:
+            if each_column == 'x':
+                count_x += 1
+            elif each_column == 'o':
+                count_o += 1
+            else:
+                return False
+
+    if count_x == count_o:
+        return True
+    else:
+        return False
 
 def main():
     num_rows = 3
@@ -103,7 +116,10 @@ def main():
         for j in range(num_rows):
             game_data[i][j] = rows[j]
     # print(game_data)
-    print(game_winner(game_data))
+    if data_validation(game_data):
+        print(game_winner(game_data))
+    else:
+        print('invalid game')
 
 if __name__ == '__main__':
     main()

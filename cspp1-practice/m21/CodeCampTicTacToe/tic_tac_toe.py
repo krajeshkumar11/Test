@@ -49,12 +49,19 @@ def lr_rl_diagonal(matrix, pattern):
             j -= 1
 
     if count_x == 3:
-        print('x')
+        # print('x')
+        return (True, 'x')
     elif count_o == 3:
-        print('o')
+        # print('o')
+        return (True, 'o')
+    else:
+        return (True, 'draw')
+
 
 def hz_vt_winner(matrix, patter):
     # print(matrix)
+    flag_x = False
+    flag_o = False
     for i in range(num_rows):
         count_x = 0
         count_o = 0
@@ -71,9 +78,19 @@ def hz_vt_winner(matrix, patter):
                     count_o += 1
         # print(count_x, count_o)
         if count_x == 3:
-            print('x')
+            flag_x = True
         elif count_o == 3:
-            print('o')
+            flag_o = True
+
+    if flag_x:
+        # print('x')
+        return (True, 'x')
+    elif flag_o:
+        # print('o')
+        return (True, 'o')
+    else:
+        # print('draw')
+        return (True, 'draw')
 
 
 def main():
@@ -84,10 +101,23 @@ def main():
         user_input = input().split(' ')
         matrix.append(user_input)
 
-    hz_vt_winner(matrix, 'HZ')
-    hz_vt_winner(matrix, 'VT')
-    lr_rl_diagonal(matrix, 'LR')
-    lr_rl_diagonal(matrix, 'RL')
+
+    result_list = list(hz_vt_winner(matrix, 'HZ'))
+    if result_list[0]:
+        print(result_list[1])
+        return
+    result_list = list(hz_vt_winner(matrix, 'VT'))
+    if result_list[0]:
+        print(result_list[1])
+        return
+    result_list = list(lr_rl_diagonal(matrix, 'LR'))
+    if result_list[0]:
+        print(result_list[1])
+        return
+    result_list = list(lr_rl_diagonal(matrix, 'RL'))
+    if result_list[0]:
+        print(result_list[1])
+        return
 
 if __name__ == '__main__':
     main()

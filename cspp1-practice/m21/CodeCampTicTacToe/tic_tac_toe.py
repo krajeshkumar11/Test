@@ -52,6 +52,8 @@ def lr_rl_diagonal(matrix, pattern):
         print('x')
     elif count_o == 3:
         print('o')
+    else:
+        print('draw')
 
 def hz_vt_winner(matrix, patter):
     # print(matrix)
@@ -72,8 +74,13 @@ def hz_vt_winner(matrix, patter):
         # print(count_x, count_o)
         if count_x == 3:
             print('x')
+            return True
         elif count_o == 3:
             print('o')
+            return True
+        else:
+            print('draw')
+            return True
 
 
 def main():
@@ -84,10 +91,13 @@ def main():
         user_input = input().split(' ')
         matrix.append(user_input)
 
-    hz_vt_winner(matrix, 'HZ')
-    hz_vt_winner(matrix, 'VT')
-    lr_rl_diagonal(matrix, 'LR')
-    lr_rl_diagonal(matrix, 'RL')
+    result = hz_vt_winner(matrix, 'HZ')
+    if result == False:
+        result = hz_vt_winner(matrix, 'VT')
+        if result == False:
+            result = lr_rl_diagonal(matrix, 'LR')
+        else:
+            result = lr_rl_diagonal(matrix, 'RL')
 
 if __name__ == '__main__':
     main()
